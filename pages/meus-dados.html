@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIA - Meus Dados</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/meusdados.css">
+
+    <script src="../js/meus-dados.js" defer></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-aia sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="Logo AIA_Symbol.png" alt="AIA Logo"></a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="alunopresencial.html"><i class="bi bi-house-door me-1"></i> Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-journal-bookmark me-2 text-secondary"></i> Atualizações</a></li>
+                </ul>
+                <div class="user-profile d-flex align-items-center">
+                    <div class="user-info text-end d-none d-md-block">
+                        <span class="user-name">Lucas Ferreira</span>
+                        <span class="user-status">Estudante Premium</span>
+                    </div>
+                    <div class="user-avatar ms-3">LF</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid px-4 mt-4">
+        <div class="mb-4">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-1">
+                    <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Meu Perfil</a></li>
+                    <li class="breadcrumb-item active">Dados Pessoais</li>
+                </ol>
+            </nav>
+            <h2 class="titulo-pagina">Dados do Aluno:</h2>
+            <p class="text-muted">Gerencie seus dados e acompanhe sua proficiência por matéria.</p>
+        </div>
+
+        <div class="row g-4 mb-5">
+            <div class="col-lg-8">
+                
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-header py-3">
+                        <h5 class="mb-0 fw-bold"><i class="bi bi-person-vcard me-2"></i>Identificação e Contato</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-12">
+                                <label class="form-label small">Aluno</label>
+                                <input type="text" id="aluno-nome" class="form-control" placeholder="Nome completo">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small">Telefone</label>
+                                <input type="tel" id="aluno-tel" class="form-control" placeholder="(00) 00000-0000">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small">Instagram</label>
+                                <input type="text" id="aluno-insta" class="form-control" placeholder="@usuario">
+                            </div>
+                            <div class="col-md-12">
+                                <label class="form-label small">E-mail</label>
+                                <input type="email" id="aluno-email" class="form-control" placeholder="email@exemplo.com">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small">Responsável</label>
+                                <input type="text" id="resp-nome" class="form-control" placeholder="Nome do responsável">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small">Tel. do Responsável</label>
+                                <input type="tel" id="resp-tel" class="form-control" placeholder="(00) 00000-0000">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header py-3">
+                        <h5 class="mb-0 fw-bold"><i class="bi bi-heart-pulse me-2"></i>Perfil Complementar</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <label class="form-label small">Tempo de Pré-vest</label>
+                                <input type="text" id="tempo-prevest" class="form-control" placeholder="Ex: 1 ano">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label small">Cota</label>
+                                <select id="cota-tipo" class="form-select">
+                                    <option value="NÃO">NÃO</option>
+                                    <option value="SIM">SIM</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label small">Qual (Cota)?</label>
+                                <select id="cota-qual" class="form-select">
+                                    <option value="">-</option>
+                                    <option value="EP">EP (Escola Pública)</option>
+                                    <option value="EP+PPI">EP + PPI</option>
+                                    <option value="PPI">PPI</option>
+                                    <option value="PcD">PcD</option>
+                                    <option value="EP+PcD">EP + PcD</option>
+                                </select>
+                            </div>
+                            
+                            <div class="col-md-3">
+                                <label class="form-label small">Atividade Física</label>
+                                <select id="attr-fisica" class="form-select">
+                                    <option value="NÃO">NÃO</option>
+                                    <option value="SIM">SIM</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label small">Frequência</label>
+                                <select id="attr-freq" class="form-select">
+                                    <option value="">-</option>
+                                    <option value="1x/semana">1x/semana</option>
+                                    <option value="2x/semana">2x/semana</option>
+                                    <option value="3x/semana">3x/semana</option>
+                                    <option value="4x/semana">4x/semana</option>
+                                    <option value="5x/semana">5x/semana</option>
+                                    <option value="6x/semana">6x/semana</option>
+                                    <option value="7x/semana">7x/semana</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label small">Neurodivergente</label>
+                                <select id="neuro-status" class="form-select">
+                                    <option value="NÃO">NÃO</option>
+                                    <option value="SIM">SIM</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label small">Qual (Neuro)?</label>
+                                <select id="neuro-qual" class="form-select">
+                                    <option value="">-</option>
+                                    <option value="TEA">TEA</option>
+                                    <option value="TDAH">TDAH</option>
+                                    <option value="Dislexia">Dislexia</option>
+                                    <option value="Discalculia">Discalculia</option>
+                                    <option value="Dispraxia">Dispraxia</option>
+                                    <option value="Altas Habilidades">Altas Habilidades</option>
+                                    <option value="Síndrome de Tourette">Síndrome de Tourette</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label class="form-label small">Psicoterapia</label>
+                                <select id="psico-status" class="form-select">
+                                    <option value="NÃO">NÃO</option>
+                                    <option value="SIM">SIM</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label class="form-label small">Observações Médicas</label>
+                                <textarea id="obs-medicas" class="form-control" rows="2" placeholder="Descreva alergias ou cuidados específicos..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm lesson-card">
+                    <div class="card-header py-3 text-center">
+                        <h5 class="mb-0 fw-bold"><i class="bi bi-graph-up-arrow me-2"></i>Proficiência</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table align-middle mb-0">
+                                <thead>
+                                    <tr>
+                                        <th class="ps-4">Matéria</th>
+                                        <th style="width: 140px;" class="text-center pe-4">Nível</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td class="ps-4">Linguagens</td><td class="pe-4"><select id="p-linguagens" class="form-select proficiencia-select"><option value="">-</option><option value="alta">Alta</option><option value="media">Média</option><option value="baixa">Baixa</option></select></td></tr>
+                                    <tr><td class="ps-4">Inglês</td><td class="pe-4"><select id="p-ingles" class="form-select proficiencia-select"><option value="">-</option><option value="alta">Alta</option><option value="media">Média</option><option value="baixa">Baixa</option></select></td></tr>
+                                    <tr><td class="ps-4">História</td><td class="pe-4"><select id="p-historia" class="form-select proficiencia-select"><option value="">-</option><option value="alta">Alta</option><option value="media">Média</option><option value="baixa">Baixa</option></select></td></tr>
+                                    <tr><td class="ps-4">Geografia</td><td class="pe-4"><select id="p-geografia" class="form-select proficiencia-select"><option value="">-</option><option value="alta">Alta</option><option value="media">Média</option><option value="baixa">Baixa</option></select></td></tr>
+                                    <tr><td class="ps-4">Filosofia</td><td class="pe-4"><select id="p-filosofia" class="form-select proficiencia-select"><option value="">-</option><option value="alta">Alta</option><option value="media">Média</option><option value="baixa">Baixa</option></select></td></tr>
+                                    <tr><td class="ps-4">Sociologia</td><td class="pe-4"><select id="p-sociologia" class="form-select proficiencia-select"><option value="">-</option><option value="alta">Alta</option><option value="media">Média</option><option value="baixa">Baixa</option></select></td></tr>
+                                    <tr><td class="ps-4">Biologia</td><td class="pe-4"><select id="p-biologia" class="form-select proficiencia-select"><option value="">-</option><option value="alta">Alta</option><option value="media">Média</option><option value="baixa">Baixa</option></select></td></tr>
+                                    <tr><td class="ps-4">Química</td><td class="pe-4"><select id="p-quimica" class="form-select proficiencia-select"><option value="">-</option><option value="alta">Alta</option><option value="media">Média</option><option value="baixa">Baixa</option></select></td></tr>
+                                    <tr><td class="ps-4">Física</td><td class="pe-4"><select id="p-fisica" class="form-select proficiencia-select"><option value="">-</option><option value="alta">Alta</option><option value="media">Média</option><option value="baixa">Baixa</option></select></td></tr>
+                                    <tr><td class="ps-4">Matemática</td><td class="pe-4"><select id="p-matematica" class="form-select proficiencia-select"><option value="">-</option><option value="alta">Alta</option><option value="media">Média</option><option value="baixa">Baixa</option></select></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <button type="button" class="btn btn-primary w-100 py-3 fw-bold shadow-sm border-0">
+                        <i class="bi bi-cloud-arrow-up-fill me-2"></i>SALVAR DADOS
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

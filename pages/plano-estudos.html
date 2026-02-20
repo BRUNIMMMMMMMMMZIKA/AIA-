@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIA - Gerenciador de Mentoria</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/planoestudos.css">
+    <script src="../js/plano-estudos.js" defer></script>
+</head>
+
+<body>
+     <nav class="navbar navbar-expand-lg navbar-aia sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="Logo AIA_Symbol.png" alt="AIA Logo"></a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="alunopresencial.html"><i
+                                class="bi bi-house-door me-1"></i> Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i
+                                class="bi bi-journal-bookmark me-2 text-secondary"></i> Atualizações</a></li>
+                </ul>
+                <div class="d-flex flex-column me-5">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-1">
+                            <li class="breadcrumb-item"><a href="#">Mentoria</a></li>
+                        </ol>
+                    </nav>
+                    <h1 class="h4 fw-bold mb-0">Encontros</h1>
+                </div>
+                <div class="user-profile d-flex align-items-center">
+                    <div class="user-info text-end d-none d-md-block">
+                        <span class="user-name">Lucas Ferreira</span>
+                        <span class="user-status">Estudante Premium</span>
+                    </div>
+                    <div class="user-avatar ms-3">LF</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-5 gap-3">
+            <div>
+                <h2 class="titulo-pagina mb-1 fw-bold">Encontros com o Mentor</h2>
+                <p class="text-muted mb-0">Organize seus registros de mentoria e acompanhe sua evolução.</p>
+            </div>
+            <button class="btn btn-primary-aia shadow-sm px-4 py-2" data-bs-toggle="modal" data-bs-target="#modalAgendar">
+                <i class="bi bi-calendar-plus me-2"></i> Agendar Encontro
+            </button>
+        </div>
+
+        <div class="card shadow-sm border-0 mb-5 overflow-hidden" style="border-radius: 16px;">
+            <div class="bg-success text-white p-2 px-3 fw-bold d-flex align-items-center">
+                <i class="bi bi-pin-angle-fill me-2"></i> 
+                <span>Monitoramento de Check-ins e Observações do Professor</span>
+            </div>
+
+            <div class="p-3 bg-light border-bottom">
+                <ul class="nav nav-pills gap-2" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active py-1 px-3" id="pills-todos-tab" data-bs-toggle="pill" data-bs-target="#pills-todos" type="button" role="tab">
+                            <i class="bi bi-grid-fill me-2"></i>Ver Todos
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link py-1 px-3" id="pills-definidos-tab" data-bs-toggle="pill" data-bs-target="#pills-definidos" type="button" role="tab">
+                            <i class="bi bi-calendar-check me-2"></i>Encontros Definidos
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link py-1 px-3" id="pills-extras-tab" data-bs-toggle="pill" data-bs-target="#pills-extras" type="button" role="tab">
+                            <i class="bi bi-plus-circle me-2"></i>Encontros Extras
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-hover mb-0 align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th style="width: 130px;" class="text-center">STATUS</th>
+                            <th style="width: 160px;">DATA</th>
+                            <th>DESCRIÇÃO DO ENCONTRO</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-status-body">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-todos" role="tabpanel">
+                <div id="container-todos" class="d-flex flex-column gap-4"></div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-definidos" role="tabpanel">
+                <div id="container-definidos" class="d-flex flex-column gap-4"></div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-extras" role="tabpanel">
+                <div id="container-extras" class="d-flex flex-column gap-4"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalAgendar" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow" style="border-radius: 20px;">
+                <div class="modal-header border-0 pt-4 px-4">
+                    <h5 class="modal-title fw-bold">Detalhes do Encontro</h5>
+                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="form-novo-encontro">
+                        <div class="mb-3">
+                            <label class="fw-bold mb-2 small text-uppercase text-muted">Tipo de Encontro</label>
+                            <select class="form-select shadow-none" id="modal-tipo" required>
+                                <option value="definido">Definido (Azul)</option>
+                                <option value="extra" selected>Extra (Verde)</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="fw-bold mb-2 small text-uppercase text-muted">Nome da Atividade</label>
+                            <input type="text" id="modal-titulo" class="form-control shadow-none" placeholder="Ex: Planejamento Pós-Simulado" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="fw-bold mb-2 small text-uppercase text-muted">Data do Encontro</label>
+                            <input type="date" id="modal-data" class="form-control shadow-none" required>
+                        </div>
+                        <div class="d-flex justify-content-center gap-3">
+                            <button type="button" class="btn btn-light w-50 fw-semibold" data-bs-dismiss="modal" style="border-radius: 30px;">Cancelar</button>
+                            <button type="submit" class="btn btn-primary btn-modal-save w-50 text-white fw-semibold shadow-none" style="border-radius: 30px;">Salvar Registro</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalConfirmarExclusao" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content border-0 shadow text-center" style="border-radius: 24px;">
+                <div class="modal-body p-4">
+                    <div class="text-danger mb-3">
+                        <i class="bi bi-exclamation-octagon" style="font-size: 3rem;"></i>
+                    </div>
+                    <h2 class="fw-bold mb-2">Excluir?</h2>
+                    <p class="text-muted mb-4">Deseja excluir permanentemente este registro?</p>
+                    <div class="d-flex flex-column gap-2">
+                        <button type="button" class="btn btn-danger py-2 fw-bold" id="btnConfirmarExcluir" style="border-radius: 12px;">Sim, excluir</button>
+                        <button type="button" class="btn btn-light py-2 fw-semibold" data-bs-dismiss="modal" style="border-radius: 12px;">Não</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <template id="lesson-template">
+        <div class="lesson-card" data-id="" data-tipo="">
+            <div class="lesson-header">
+                <div class="d-flex align-items-center flex-grow-1">
+                    <div class="tab-nav me-4 text-center">
+                        <span class="ta d-block">ENCONTRO</span>
+                        <span class="h3 mb-0 fw-bold num-encontro">00</span>
+                    </div>
+                    <div class="flex-grow-1">
+                        <h5 class="titulo-texto mb-1">Título do Encontro</h5>
+                        <div class="text-muted small">
+                            <i class="bi bi-calendar-event me-1"></i>
+                            <span class="date-text">--/--/--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center gap-2">
+                    <button class="btn-editar" title="Editar"><i class="bi bi-pencil-square"></i></button>
+                    <button class="btn-remover" title="Excluir"><i class="bi bi-trash3"></i></button>
+                    <i class="bi bi-chevron-down fs-4 ms-2 text-muted arrow-icon"></i>
+                </div>
+            </div>
+            
+            <div class="lesson-content">
+                <div class="p-4 bg-light-subtle">
+                    <div class="text-uppercase fw-bold text-secondary mb-3 small border-bottom pb-2">Anotações da Mentoria</div>
+                    
+                    <div class="row g-3">
+                        <div class="col-md-3">
+                            <div class="mentoria-column-header">
+                                <i class="bi bi-star"></i> Obs. Professor
+                            </div>
+                            <textarea class="answer-box txt-notas-professor" placeholder="Notas do mentor..."></textarea>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mentoria-column-header">
+                                <i class="bi bi-pencil-fill"></i> Obs. Aluno
+                            </div>
+                            <textarea class="answer-box txt-notas-aluno" placeholder="Minhas anotações..."></textarea>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mentoria-column-header">
+                                <i class="bi bi-tools"></i> Ajustes
+                            </div>
+                            <textarea class="answer-box txt-ajustes" placeholder="O que mudar na rotina..."></textarea>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mentoria-column-header">
+                                <i class="bi bi-flag-fill"></i> Metas
+                            </div>
+                            <textarea class="answer-box txt-metas-longo" placeholder="Ações para a semana..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="finish-bar mt-4 pt-3 border-top d-flex align-items-center justify-content-between">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input chk-concluido shadow-none" type="checkbox" role="switch">
+                            <label class="form-check-label fw-bold ms-2 text-secondary">CONCLUÍDO</label>
+                        </div>
+                        <small class="text-muted fst-italic">Salvo automaticamente.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

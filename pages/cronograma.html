@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIA - Cronograma</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/cronograma.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-aia sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="Logo AIA_Symbol.png" alt="AIA Logo"></a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="alunopresencial.html"><i
+                                class="bi bi-house-door me-1"></i> Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i
+                                class="bi bi-journal-bookmark me-2 text-secondary"></i> Atualizações</a></li>
+                </ul>
+                <div class="d-flex flex-column me-5">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-1">
+                            <li class="breadcrumb-item"><a href="#">Cronograma</a></li>
+                        </ol>
+                    </nav>
+                    <h1 class="h4 fw-bold mb-0">Rotina de Estudos</h1>
+                </div>
+                <div class="user-profile d-flex align-items-center">
+                    <div class="user-info text-end d-none d-md-block">
+                        <span class="user-name">Lucas Ferreira</span>
+                        <span class="user-status">Estudante Premium</span>
+                    </div>
+                    <div class="user-avatar ms-3">LF</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container-fluid px-4 mt-4">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <nav aria-label="breadcrumb">
+                </nav>
+                <h1 class="h4 fw-bold mb-0">Seus Horários:</h1>
+                <p class="text-muted small mb-0">Gerencie sua rotina de estudos e cronograma.</p>
+            </div>
+
+            <button id="btn-edit-mode" class="btn btn-outline-primary shadow-sm rounded-pill">
+                <i class="bi bi-pencil-square me-2"></i>Modo Gerenciamento
+            </button>
+        </div>
+
+        <div class="d-flex gap-2 mb-3">
+            <button class="btn btn-sm btn-primary filter-btn active" data-periodo="todos">Todos</button>
+            <button class="btn btn-sm btn-outline-secondary filter-btn" data-periodo="manha">
+                <i class="bi bi-brightness-high me-1"></i>Manhã
+            </button>
+            <button class="btn btn-sm btn-outline-secondary filter-btn" data-periodo="tarde">
+                <i class="bi bi-sun me-1"></i>Tarde
+            </button>
+            <button class="btn btn-sm btn-outline-secondary filter-btn" data-periodo="noite">
+                <i class="bi bi-moon-stars me-1"></i>Noite
+            </button>
+        </div>
+
+        <div class="table-responsive shadow-sm rounded-4 bg-white border">
+            <table id="cronograma-table" class="table table-bordered table-cronograma mb-0">
+                <thead>
+                    <tr>
+                        <th class="col-horario">Horário</th>
+                        <th>Segunda</th>
+                        <th>Terça</th>
+                        <th>Quarta</th>
+                        <th>Quinta</th>
+                        <th>Sexta</th>
+                        <th>Sábado</th>
+                        <th>Domingo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-row="05:00">
+                        <td class="col-horario">05:00 - 06:00</td>
+                        <td data-dia="1"></td>
+                        <td data-dia="2"></td>
+                        <td data-dia="3"></td>
+                        <td data-dia="4"></td>
+                        <td data-dia="5"></td>
+                        <td data-dia="6"></td>
+                        <td data-dia="7"></td>
+                    </tr>
+                    <tr data-row="06:00">
+                        <td class="col-horario">06:00 - 07:00</td>
+                        <td data-dia="1"></td>
+                        <td data-dia="2"></td>
+                        <td data-dia="3"></td>
+                        <td data-dia="4"></td>
+                        <td data-dia="5"></td>
+                        <td data-dia="6"></td>
+                        <td data-dia="7"></td>
+                    </tr>
+                    <tr data-row="07:00">
+                        <td class="col-horario">07:00 - 08:30</td>
+                        <td data-dia="1"></td>
+                        <td data-dia="2"></td>
+                        <td data-dia="3"></td>
+                        <td data-dia="4"></td>
+                        <td data-dia="5"></td>
+                        <td data-dia="6"></td>
+                        <td data-dia="7"></td>
+                    </tr>
+                    <tr data-row="08:45">
+                        <td class="col-horario">08:45 - 10:15</td>
+                        <td data-dia="1"></td>
+                        <td data-dia="2"></td>
+                        <td data-dia="3"></td>
+                        <td data-dia="4"></td>
+                        <td data-dia="5"></td>
+                        <td data-dia="6"></td>
+                        <td data-dia="7"></td>
+                    </tr>
+                    <tr data-row="10:30">
+                        <td class="col-horario">10:30 - 12:00</td>
+                        <td data-dia="1"></td>
+                        <td data-dia="2"></td>
+                        <td data-dia="3"></td>
+                        <td data-dia="4"></td>
+                        <td data-dia="5"></td>
+                        <td data-dia="6"></td>
+                        <td data-dia="7"></td>
+                    </tr>
+                    <tr data-row="12:30">
+                        <td class="col-horario">12:30 - 14:00</td>
+                        <td data-dia="1"></td>
+                        <td data-dia="2"></td>
+                        <td data-dia="3"></td>
+                        <td data-dia="4"></td>
+                        <td data-dia="5"></td>
+                        <td data-dia="6"></td>
+                        <td data-dia="7"></td>
+                    </tr>
+                    <tr data-row="14:00">
+                        <td class="col-horario">14:00 - 14:30</td>
+                        <td data-dia="1"></td>
+                        <td data-dia="2"></td>
+                        <td data-dia="3"></td>
+                        <td data-dia="4"></td>
+                        <td data-dia="5"></td>
+                        <td data-dia="6"></td>
+                        <td data-dia="7"></td>
+                    </tr>
+                    <tr data-row="14:30">
+                        <td class="col-horario">14:30 - 15:15</td>
+                        <td data-dia="1"></td>
+                        <td data-dia="2"></td>
+                        <td data-dia="3"></td>
+                        <td data-dia="4"></td>
+                        <td data-dia="5"></td>
+                        <td data-dia="6"></td>
+                        <td data-dia="7"></td>
+                    </tr>
+                    <tr data-row="15:15">
+                        <td class="col-horario">15:15 - 16:00</td>
+                        <td data-dia="1"></td>
+                        <td data-dia="2"></td>
+                        <td data-dia="3"></td>
+                        <td data-dia="4"></td>
+                        <td data-dia="5"></td>
+                        <td data-dia="6"></td>
+                        <td data-dia="7"></td>
+                    </tr>
+                    <tr data-row="16:00">
+                        <td class="col-horario">16:00 - 16:45</td>
+                        <td data-dia="1"></td>
+                        <td data-dia="2"></td>
+                        <td data-dia="3"></td>
+                        <td data-dia="4"></td>
+                        <td data-dia="5"></td>
+                        <td data-dia="6"></td>
+                        <td data-dia="7"></td>
+                    </tr>
+                    <tr data-row="17:00">
+                        <td class="col-horario">17:00 - 17:45</td>
+                        <td data-dia="1"></td>
+                        <td data-dia="2"></td>
+                        <td data-dia="3"></td>
+                        <td data-dia="4"></td>
+                        <td data-dia="5"></td>
+                        <td data-dia="6"></td>
+                        <td data-dia="7"></td>
+                    </tr>
+                    <tr data-row="18:30">
+                        <td class="col-horario">18:30 - 19:15</td>
+                        <td data-dia="1"></td>
+                        <td data-dia="2"></td>
+                        <td data-dia="3"></td>
+                        <td data-dia="4"></td>
+                        <td data-dia="5"></td>
+                        <td data-dia="6"></td>
+                        <td data-dia="7"></td>
+                    </tr>
+                    <tr data-row="19:30">
+                        <td class="col-horario">19:30 - 20:15</td>
+                        <td data-dia="1"></td>
+                        <td data-dia="2"></td>
+                        <td data-dia="3"></td>
+                        <td data-dia="4"></td>
+                        <td data-dia="5"></td>
+                        <td data-dia="6"></td>
+                        <td data-dia="7"></td>
+                    </tr>
+                    <tr data-row="21:00">
+                        <td class="col-horario">21:00 - 22:00</td>
+                        <td data-dia="1"></td>
+                        <td data-dia="2"></td>
+                        <td data-dia="3"></td>
+                        <td data-dia="4"></td>
+                        <td data-dia="5"></td>
+                        <td data-dia="6"></td>
+                        <td data-dia="7"></td>
+                    </tr>
+                    <tr data-row="22:00">
+                        <td class="col-horario">22:00 - 23:00</td>
+                        <td data-dia="1"></td>
+                        <td data-dia="2"></td>
+                        <td data-dia="3"></td>
+                        <td data-dia="4"></td>
+                        <td data-dia="5"></td>
+                        <td data-dia="6"></td>
+                        <td data-dia="7"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <div class="modal fade" id="modalEdicao" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-primary text-white border-0">
+                    <h5 class="modal-title fw-bold">Agendar Atividade</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Nome da Atividade</label>
+                        <input type="text" id="input-tarefa" class="form-control"
+                            placeholder="Ex: Matemática - Geometria">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Cor</label>
+                        <select id="select-cor" class="form-select">
+                            <option value="bg-quimica text-white">Azul (Química)</option>
+                            <option value="bg-fisica text-white">Roxo (Física)</option>
+                            <option value="bg-matematica text-white">Laranja (Matemática)</option>
+                            <option value="bg-gramatica text-white">Rosa (Gramática)</option>
+                            <option value="bg-redacao text-white">Rosa Escuro (Redação/Inglês)</option>
+                            <option value="bg-biologia text-white">Verde (Biologia)</option>
+                            <option value="bg-geografia text-dark">Amarelo (Geografia)</option>
+                            <option value="bg-sociologia text-white">Vermelho (Sociologia)</option>
+                            <option value="bg-historia text-white">Marrom (História)</option>
+                            <option value="bg-secondary text-white">Cinza (Outros)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 p-4 pt-0">
+                    <button type="button" class="btn btn-light rounded-pill px-4" id="btn-limpar-slot">Limpar
+                        Célula</button>
+                    <button type="button" class="btn btn-primary rounded-pill px-4" id="btn-salvar-slot">Salvar
+                        Alteração</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/cronograma.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login | AIA</title>
+  <style>
+    :root{
+      --bg: #f6f8ff;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --primary: #1d4ed8;
+      --primary-2: #2563eb;
+      --border: #e2e8f0;
+      --shadow: 0 18px 50px rgba(2, 6, 23, .12);
+      --radius: 18px;
+      --focus: 0 0 0 4px rgba(37, 99, 235, .18);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--text);
+      background:
+        radial-gradient(900px 520px at 70% 30%, rgba(37, 99, 235, .12), transparent 60%),
+        radial-gradient(600px 420px at 20% 70%, rgba(29, 78, 216, .10), transparent 60%),
+        var(--bg);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+
+    .shell{
+      width:min(1100px, 100%);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+    }
+
+    .left{
+      padding:38px 42px;
+      position:relative;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:18px;
+    }
+    .logo{
+      width:44px;height:44px;border-radius:14px;
+      display:grid;place-items:center;
+      background: linear-gradient(135deg, rgba(29,78,216,.12), rgba(37,99,235,.18));
+      border: 1px solid rgba(29,78,216,.18);
+    }
+    .logo svg{width:24px;height:24px}
+    .brand h1{
+      margin:0;
+      font-size:18px;
+      letter-spacing:.2px;
+    }
+    .brand p{
+      margin:0;
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .headline{
+      margin: 12px 0 22px;
+    }
+    .headline h2{
+      margin:0 0 6px;
+      font-size:24px;
+    }
+    .headline span{
+      color: var(--muted);
+      font-size:13px;
+    }
+
+    .tabs{
+      display:inline-flex;
+      background:#f1f5ff;
+      border:1px solid rgba(37,99,235,.16);
+      padding:6px;
+      border-radius: 999px;
+      gap:6px;
+      margin-bottom:18px;
+    }
+    .tab{
+      border:0;
+      background:transparent;
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:13px;
+      color: var(--muted);
+      cursor:pointer;
+    }
+    .tab.active{
+      background: #ffffff;
+      color: var(--text);
+      box-shadow: 0 10px 20px rgba(2, 6, 23, .06);
+      border:1px solid rgba(37,99,235,.16);
+    }
+
+    form{
+      display:none;
+      margin-top: 6px;
+    }
+    form.active{display:block}
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    .grid .full{grid-column: 1 / -1}
+
+    label{
+      display:block;
+      font-size:12px;
+      color: var(--muted);
+      margin-bottom:6px;
+      font-weight:600;
+    }
+
+    .field{
+      position:relative;
+    }
+    input{
+      width:100%;
+      padding:12px 12px 12px 12px;
+      border-radius: 12px;
+      border:1px solid var(--border);
+      outline:none;
+      background:#fff;
+      font-size:14px;
+      transition:.15s;
+    }
+    input:focus{
+      border-color: rgba(37,99,235,.55);
+      box-shadow: var(--focus);
+    }
+
+    .actions{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-top:16px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      width:100%;
+      border:0;
+      cursor:pointer;
+      border-radius: 12px;
+      padding:12px 14px;
+      font-weight:800;
+      letter-spacing:.2px;
+      font-size:14px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color:#fff;
+      box-shadow: 0 14px 24px rgba(29,78,216,.22);
+      transition: .15s transform, .15s filter;
+    }
+    .btn:hover{filter: brightness(1.02)}
+    .btn:active{transform: translateY(1px)}
+
+    .link{
+      font-size:12px;
+      color: var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+    .link:hover{text-decoration:underline}
+
+    .helper{
+      margin-top:14px;
+      font-size:12px;
+      color: var(--muted);
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .helper a{
+      color: var(--muted);
+      text-decoration:none;
+    }
+    .helper a:hover{color: var(--text)}
+    .note{
+      margin-top:14px;
+      font-size:12px;
+      color: var(--muted);
+      line-height:1.4;
+    }
+
+    .right{
+      padding:28px;
+      background:
+        radial-gradient(520px 320px at 40% 20%, rgba(37,99,235,.16), transparent 55%),
+        radial-gradient(520px 320px at 70% 70%, rgba(29,78,216,.14), transparent 55%),
+        #f8fbff;
+      border-left: 1px solid var(--border);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .illustration{
+      width:min(420px, 100%);
+      aspect-ratio: 1.2 / 1;
+      border-radius: 22px;
+      border: 1px dashed rgba(37,99,235,.28);
+      background: linear-gradient(135deg, rgba(255,255,255,.9), rgba(255,255,255,.7));
+      display:grid;
+      place-items:center;
+      padding:18px;
+    }
+
+    .illus-inner{
+      width:100%;
+      height:100%;
+      border-radius: 18px;
+      background:
+        radial-gradient(180px 140px at 70% 30%, rgba(37,99,235,.22), transparent 60%),
+        radial-gradient(200px 160px at 30% 70%, rgba(29,78,216,.18), transparent 60%),
+        #ffffff;
+      border: 1px solid rgba(37,99,235,.10);
+      position:relative;
+      overflow:hidden;
+    }
+
+    /* “desenho” simples para lembrar a ilustração */
+    .blob{
+      position:absolute; inset:-30% -20% auto auto;
+      width: 280px; height: 280px;
+      border-radius: 999px;
+      background: rgba(37,99,235,.10);
+      filter: blur(0px);
+    }
+    .card-mini{
+      position:absolute;
+      left:22px; top:22px;
+      width: 62%;
+      height: 44%;
+      background:#fff;
+      border-radius: 16px;
+      border: 1px solid rgba(15,23,42,.08);
+      box-shadow: 0 12px 30px rgba(2,6,23,.08);
+      padding:14px;
+    }
+    .bar{height:10px;border-radius:999px;background: rgba(37,99,235,.12); margin:10px 0;}
+    .bar.b1{width:80%}
+    .bar.b2{width:56%}
+    .bar.b3{width:70%}
+    .avatar{
+      position:absolute;
+      right:24px; bottom:20px;
+      width: 150px; height: 150px;
+      border-radius: 999px;
+      background: rgba(29,78,216,.10);
+      border: 1px solid rgba(37,99,235,.18);
+      display:grid;
+      place-items:center;
+    }
+    .avatar svg{width:88px;height:88px; opacity:.9}
+    .caption{
+      position:absolute;
+      left:24px; bottom:20px;
+      font-size:12px;
+      color: var(--muted);
+      font-weight:600;
+    }
+
+    @media (max-width: 920px){
+      .shell{grid-template-columns: 1fr}
+      .right{display:none}
+      .left{padding:32px 22px}
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <main class="shell">
+    <section class="left">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2Z" stroke="rgba(29,78,216,.9)" stroke-width="1.8"/>
+            <path d="M8.2 12a3.8 3.8 0 1 0 7.6 0 3.8 3.8 0 0 0-7.6 0Z" fill="rgba(37,99,235,.18)"/>
+            <path d="M12 6.2v2.1M12 15.7v2.1M6.2 12h2.1M15.7 12h2.1" stroke="rgba(29,78,216,.9)" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <h1>AIA</h1>
+          <p>Plataforma de ensino</p>
+        </div>
+      </div>
+
+      <div class="headline">
+        <h2>Olá, <strong>bom ter você de volta</strong></h2>
+        <span>Acesse sua conta ou crie um cadastro para começar.</span>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Autenticação">
+        <button class="tab active" id="tab-login" type="button" role="tab" aria-selected="true" aria-controls="form-login">
+          Login
+        </button>
+        <button class="tab" id="tab-cadastro" type="button" role="tab" aria-selected="false" aria-controls="form-cadastro">
+          Cadastro
+        </button>
+      </div>
+
+      <!-- LOGIN -->
+      <form id="form-login" class="active" autocomplete="on">
+        <div class="grid">
+          <div class="full">
+            <label for="login-email">E-mail</label>
+            <div class="field">
+              <input id="login-email" name="email" type="email" placeholder="seuemail@exemplo.com" required />
+            </div>
+          </div>
+
+          <div class="full">
+            <label for="login-senha">Senha</label>
+            <div class="field">
+              <input id="login-senha" name="senha" type="password" placeholder="••••••••••" required />
+            </div>
+          </div>
+
+          <div class="full actions">
+            <a class="link" href="#" onclick="alert('Implementar fluxo de recuperação no backend.'); return false;">Esqueci a senha</a>
+          </div>
+
+          <div class="full">
+            <a href="alunopresencial.html" class="" type="submit">Entrar</button>
+          </div>
+        </div>
+      </form>
+
+      <!-- CADASTRO -->
+      <form id="form-cadastro" autocomplete="on">
+        <div class="grid">
+          <div class="full">
+            <label for="cad-nome">Nome completo</label>
+            <input id="cad-nome" name="nome" type="text" placeholder="Seu nome" required />
+          </div>
+
+          <div>
+            <label for="cad-nasc">Data de nascimento</label>
+            <input id="cad-nasc" name="nascimento" type="date" required />
+          </div>
+
+          <div>
+            <label for="cad-cpf">CPF</label>
+            <input id="cad-cpf" name="cpf" type="text" inputmode="numeric" placeholder="000.000.000-00" maxlength="14" required />
+          </div>
+
+          <div class="full">
+            <label for="cad-email">E-mail</label>
+            <input id="cad-email" name="email" type="email" placeholder="seuemail@exemplo.com" required />
+          </div>
+
+          <div>
+            <label for="cad-senha">Senha</label>
+            <input id="cad-senha" name="senha" type="password" placeholder="Crie uma senha" minlength="6" required />
+          </div>
+
+          <div>
+            <label for="cad-senha2">Confirmar senha</label>
+            <input id="cad-senha2" name="senha2" type="password" placeholder="Repita a senha" minlength="6" required />
+          </div>
+
+          <div class="full">
+            <button class="btn" type="submit">Criar conta</button>
+          </div>
+        </div>
+
+        <div class="note">
+          Ao criar uma conta, você concorda com os termos do sistema.
+        </div>
+      </form>
+
+      <div class="helper">
+        <a href="#" onclick="alert('Link de documentação/ajuda.'); return false;">Documentação</a>
+        <a href="#" onclick="alert('Link de suporte.'); return false;">Suporte</a>
+        <a href="#" onclick="alert('Link de termos.'); return false;">Termos de Uso</a>
+        <a href="#" onclick="alert('Link de privacidade.'); return false;">Privacidade</a>
+      </div>
+    </section>
+
+    <aside class="right" aria-hidden="true">
+      <div class="illustration">
+        <div class="illus-inner">
+          <div class="blob"></div>
+          <div class="card-mini">
+            <div class="bar b1"></div>
+            <div class="bar b2"></div>
+            <div class="bar b3"></div>
+            <div class="bar b2"></div>
+          </div>
+          <div class="avatar">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z" fill="rgba(37,99,235,.35)"/>
+              <path d="M4 20a8 8 0 0 1 16 0" stroke="rgba(29,78,216,.8)" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="caption">AIA • Acesso Seguro</div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+
+
+</body>
+</html>

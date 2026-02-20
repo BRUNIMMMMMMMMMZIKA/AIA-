@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Materiais</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<style>
+/* RESET */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Poppins', sans-serif;
+}
+
+/* BODY */
+body {
+background: #6d247d;
+min-height: 100vh;
+padding-top: 100px; /* espaço do header */
+}
+
+/* ================= HEADER ================= */
+.header {
+position: fixed;
+top: 0;
+width: 100%;
+height: 80px;
+padding: 0 50px;
+background: rgba(255, 255, 255, 0.75);
+backdrop-filter: blur(15px);
+display: flex;
+align-items: center;
+justify-content: space-between;
+z-index: 1000;
+box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+.logo img {
+height: 45px;
+}
+
+.nav {
+display: flex;
+align-items: center;
+gap: 28px;
+}
+
+.nav a {
+text-decoration: none;
+color: #1a237e;
+font-weight: 500;
+position: relative;
+}
+
+.nav a::after {
+content: "";
+position: absolute;
+left: 0;
+bottom: -6px;
+width: 0;
+height: 2px;
+background: linear-gradient(90deg, #1a237e, #2979ff);
+transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+width: 100%;
+}
+
+/* DROPDOWN */
+.dropdown {
+position: relative;
+}
+
+.dropdown-content {
+position: absolute;
+top: 40px;
+left: 0;
+background: #fff;
+border-radius: 12px;
+min-width: 180px;
+padding: 10px 0;
+box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+opacity: 0;
+visibility: hidden;
+transform: translateY(10px);
+transition: 0.3s ease;
+}
+
+.dropdown-content a {
+display: block;
+padding: 10px 20px;
+color: #333;
+font-size: 14px;
+}
+
+.dropdown-content a:hover {
+background: #f2f4ff;
+color: #1a237e;
+}
+
+.dropdown:hover .dropdown-content {
+opacity: 1;
+visibility: visible;
+transform: translateY(0);
+}
+
+/* AUTH */
+.auth {
+display: flex;
+gap: 18px;
+}
+
+.login {
+color: #1a237e;
+text-decoration: none;
+}
+
+.signup {
+padding: 10px 22px;
+border-radius: 30px;
+background: linear-gradient(90deg, #1a237e, #2979ff);
+color: #fff;
+text-decoration: none;
+font-weight: 600;
+}
+
+/* ================= SEÇÃO MATERIAIS ================= */
+.materiais {
+max-width: 1200px;
+margin: 0 auto;
+padding: 60px 20px;
+}
+
+/* TÍTULO */
+.titulo-box {
+text-align: center;
+margin-bottom: 60px;
+}
+
+.titulo-box h1 {
+font-size: 38px;
+font-weight: 700;
+background: linear-gradient(90deg, #1a237e, #2979ff);
+-webkit-background-clip: text;
+color:#fff;
+}
+
+.titulo-box p {
+margin-top: 12px;
+font-size: 16px;
+color: #555;
+}
+
+/* GRID */
+.cards {
+display: grid;
+grid-template-columns: 1fr;
+gap: 30px;
+}
+
+/* CARD */
+.card {
+border-radius: 24px;
+padding: 40px 30px;
+color: #fff;
+box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+transition: transform 0.3s ease;
+}
+
+.card h2 {
+font-size: 24px;
+margin-bottom: 12px;
+}
+
+.card span {
+font-size: 15px;
+opacity: 0.9;
+}
+
+/* CORES */
+.blue {
+background: linear-gradient(135deg, #1a237e, #2979ff);
+}
+
+.green {
+background: linear-gradient(135deg, #1b5e20, #43a047);
+}
+
+.orange {
+background: linear-gradient(135deg, #e65100, #ff9800);
+}
+
+/* HOVER (DESKTOP APENAS) */
+@media (hover: hover) {
+.card:hover {
+transform: translateY(-8px);
+}
+}
+
+/* ================= RESPONSIVO ================= */
+
+/* TABLET */
+@media (min-width: 768px) {
+.cards {
+grid-template-columns: repeat(2, 1fr);
+}
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+.cards {
+grid-template-columns: repeat(3, 1fr);
+}
+}
+
+
+
+</style>
+
+    <header class="header">
+  <div class="logo">
+    <img src="../images/Logo AIA_RGB.png" alt="Logo AIA">
+  </div>
+
+  <nav class="nav">
+    <a href="#">Home</a>
+    <a href="#">Conheça</a>
+    <a href="#">Nossos Cursos</a>
+
+    <div class="dropdown">
+      <a href="#" class="dropbtn">Área Escolar ▾</a>
+      <div class="dropdown-content">
+        <a href="#">Escola</a>
+        <a href="#">Professor</a>
+        <a href="alunopresencial.html">Aluno</a>
+        <a href="#">Mentor</a>
+        <a href="#">Pais</a>
+      </div>
+    </div>
+
+    <a href="#">Planos</a>
+    <a href="#">Contato</a>
+  </nav>
+
+  <div class="auth">
+    <a href="#" class="login">Log in</a>
+    <a href="#" class="signup">Sign up</a>
+  </div>
+</header>
+
+
+<section class="materiais">
+  <div class="titulo-box">
+    <h1>Fisíca</h1>
+  </div>
+
+  <div class="cards">
+    <div class="card blue">
+      <h2>Caderno de Teoria</h2>
+      <p>Base sólida para o conhecimento</p>
+    </div>
+
+    <div class="card green">
+      <h2>Caderno de Aula</h2>
+      <p>Conteúdo prático e aplicado</p>
+    </div>
+
+    <div class="card orange">
+      <h2>Caderno de Estudos Avançados</h2>
+      <p>Para quem quer ir além</p>
+    </div>
+  </div>
+</section>
+
+
+<script src="script.js"></script>
+</body>
+</html>

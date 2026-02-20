@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIA - Provas Antigas</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/provasantigas.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-aia sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="Logo AIA_Symbol.png" alt="AIA Logo"></a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="alunopresencial.html"><i class="bi bi-house-door me-1"></i> Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-journal-bookmark me-2 text-secondary"></i> Atualizações</a></li>
+                </ul>
+                <div class="d-flex flex-column me-5 text-end">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-1 justify-content-end">
+                            <li class="breadcrumb-item"><a href="#">Provas Antigas</a></li>
+                        </ol>
+                    </nav>
+                    <h1 class="h4 fw-bold mb-0">Paulistas</h1>
+                </div>
+                <div class="user-profile d-flex align-items-center">
+                    <div class="user-info text-end d-none d-md-block">
+                        <span class="user-name">Lucas Ferreira</span>
+                        <span class="user-status">Estudante Premium</span>
+                    </div>
+                    <div class="user-avatar ms-3">LF</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container-fluid px-4 mt-4">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h1 class="h4 fw-bold mb-0">Desempenho: Vestibulares de anos anteriores</h1>
+                <p class="text-muted small mb-0">Acompanhamento detalhado por instituição e disciplina.</p>
+            </div>
+            <div>
+                <button class="btn btn-outline-danger btn-sm rounded-pill" data-bs-toggle="modal" data-bs-target="#modalExcluir">
+                    <i class="bi bi-trash me-1"></i> Limpar Histórico
+                </button>
+            </div>
+        </div>
+
+        <div class="container-abas-paulistas mx-auto mb-5">
+            <button class="btn-aba-faculdade active" data-faculdade="fuvest">FUVEST</button>
+            <button class="btn-aba-faculdade" data-faculdade="unesp">UNESP</button>
+            <button class="btn-aba-faculdade" data-faculdade="unicamp">UNICAMP</button>
+            <button class="btn-aba-faculdade" data-faculdade="famema">FAMEMA</button>
+            <button class="btn-aba-faculdade" data-faculdade="famerp">FAMERP</button>
+            <button class="btn-aba-faculdade" data-faculdade="unifesp">UNIFESP</button>
+        </div>
+
+        <div id="container-fuvest" class="aba-conteudo active">
+            <div class="table-responsive shadow-sm border rounded">
+                <table class="table table-paulista text-center mb-0">
+                    <thead class="table-dark">
+                        <tr><th colspan="31" class="py-3 bg-white text-dark fw-bold border-bottom">FUVEST</th></tr>
+                        <tr>
+                            <th rowspan="2" class="align-middle">SIM.</th>
+                            <th colspan="3">MAT</th><th colspan="3">FIS</th><th colspan="3">QUI</th>
+                            <th colspan="3">BIO</th><th colspan="3">HIST</th><th colspan="3">GEO</th>
+                            <th colspan="3">FIL/SOC</th><th colspan="3">LING</th><th colspan="3">L. ESTR</th>
+                            <th colspan="3" class="bg-primary">TOTAL</th>
+                        </tr>
+                        <tr class="sub-header-table">
+                            <th>Ac.</th><th>Tot.</th><th>%</th><th>Ac.</th><th>Tot.</th><th>%</th>
+                            <th>Ac.</th><th>Tot.</th><th>%</th><th>Ac.</th><th>Tot.</th><th>%</th>
+                            <th>Ac.</th><th>Tot.</th><th>%</th><th>Ac.</th><th>Tot.</th><th>%</th>
+                            <th>Ac.</th><th>Tot.</th><th>%</th><th>Ac.</th><th>Tot.</th><th>%</th>
+                            <th>Ac.</th><th>Tot.</th><th>%</th><th class="bg-secondary">Ac.</th><th class="bg-secondary">Tot.</th><th class="bg-secondary">%</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-fuvest"></tbody>
+                </table>
+            </div>
+            <div class="container-grafico-paulista mt-4 card p-3 shadow-sm">
+                <h5 class="fw-bold mb-3"><i class="bi bi-graph-up-arrow me-2"></i>Evolução FUVEST</h5>
+                <div style="height: 350px;"><canvas id="chartFuvest"></canvas></div>
+            </div>
+        </div>
+
+        <div id="container-unesp" class="aba-conteudo">
+            <div class="table-responsive shadow-sm border rounded">
+                <table class="table table-paulista text-center mb-0">
+                    <thead class="table-dark">
+                        <tr><th colspan="31" class="py-3 bg-white text-dark fw-bold border-bottom">UNESP</th></tr>
+                        <tr>
+                            <th rowspan="2" class="align-middle">SIM.</th>
+                            <th colspan="3">MAT</th><th colspan="3">FIS</th><th colspan="3">QUI</th>
+                            <th colspan="3">BIO</th><th colspan="3">HIST</th><th colspan="3">GEO</th>
+                            <th colspan="3">FIL/SOC</th><th colspan="3">LING</th><th colspan="3">L. ESTR</th>
+                            <th colspan="3" class="bg-primary">TOTAL</th>
+                        </tr>
+                        <tr class="sub-header-table">
+                            <th>Ac.</th><th>Tot.</th><th>%</th><th>Ac.</th><th>Tot.</th><th>%</th>
+                            <th>Ac.</th><th>Tot.</th><th>%</th><th>Ac.</th><th>Tot.</th><th>%</th>
+                            <th>Ac.</th><th>Tot.</th><th>%</th><th>Ac.</th><th>Tot.</th><th>%</th>
+                            <th>Ac.</th><th>Tot.</th><th>%</th><th>Ac.</th><th>Tot.</th><th>%</th>
+                            <th>Ac.</th><th>Tot.</th><th>%</th><th class="bg-secondary">Ac.</th><th class="bg-secondary">Tot.</th><th class="bg-secondary">%</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-unesp"></tbody>
+                </table>
+            </div>
+            <div class="container-grafico-paulista mt-4 card p-3 shadow-sm">
+                <h5 class="fw-bold mb-3"><i class="bi bi-graph-up-arrow me-2"></i>Evolução UNESP</h5>
+                <div style="height: 350px;"><canvas id="chartUnesp"></canvas></div>
+            </div>
+        </div>
+
+        <div id="container-unicamp" class="aba-conteudo">
+            <div class="table-responsive shadow-sm border rounded">
+                <table class="table table-paulista text-center mb-0">
+                    <thead class="table-dark">
+                        <tr><th colspan="31" class="py-3 bg-white text-dark fw-bold border-bottom">UNICAMP</th></tr>
+                        <tr>
+                            <th rowspan="2" class="align-middle">SIM.</th>
+                            <th colspan="3">MAT</th><th colspan="3">FIS</th><th colspan="3">QUI</th>
+                            <th colspan="3">BIO</th><th colspan="3">HIST</th><th colspan="3">GEO</th>
+                            <th colspan="3">FIL/SOC</th><th colspan="3">LING</th><th colspan="3">L. ESTR</th>
+                            <th colspan="3" class="bg-primary">TOTAL</th>
+                        </tr>
+                        <tr class="sub-header-table">
+                            <th>Ac.</th><th>Tot.</th><th>%</th><th>Ac.</th><th>Tot.</th><th>%</th>
+                            <th>Ac.</th><th>Tot.</th><th>%</th><th>Ac.</th><th>Tot.</th><th>%</th>
+                            <th>Ac.</th><th>Tot.</th><th>%</th><th>Ac.</th><th>Tot.</th><th>%</th>
+                            <th>Ac.</th><th>Tot.</th><th>%</th><th>Ac.</th><th>Tot.</th><th>%</th>
+                            <th>Ac.</th><th>Tot.</th><th>%</th><th class="bg-secondary">Ac.</th><th class="bg-secondary">Tot.</th><th class="bg-secondary">%</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-unicamp"></tbody>
+                </table>
+            </div>
+            <div class="container-grafico-paulista mt-4 card p-3 shadow-sm">
+                <h5 class="fw-bold mb-3"><i class="bi bi-graph-up-arrow me-2"></i>Evolução UNICAMP</h5>
+                <div style="height: 350px;"><canvas id="chartUnicamp"></canvas></div>
+            </div>
+        </div>
+
+        <div id="container-famema" class="aba-conteudo">
+            <div class="table-responsive shadow-sm border rounded">
+                <table class="table table-paulista text-center mb-0">
+                    <thead class="table-dark">
+                        <tr><th colspan="31" class="py-3 bg-white text-dark fw-bold border-bottom">FAMEMA</th></tr>
+                        <tr>
+                            <th rowspan="2" class="align-middle">SIM.</th>
+                            <th colspan="3">BIO</th><th colspan="3">QUI</th>
+                            <th colspan="3" class="bg-primary">TOTAL DISC.</th>
+                            <th colspan="3">MAT</th><th colspan="3">FIS</th><th colspan="3">HIST</th>
+                            <th colspan="3">GEO</th><th colspan="3">ING</th><th colspan="3">LING</th>
+                            <th colspan="3" class="bg-primary">TOTAL OBJETIVAS</th>
+                        </tr>
+                        <tr class="sub-header-table">
+                            <th>Ac.</th><th>Tot.</th><th>%</th><th>Ac.</th><th>Tot.</th><th>%</th>
+                            <th class="bg-secondary">Ac.</th><th class="bg-secondary">Tot.</th><th class="bg-secondary">%</th>
+                            <th>Ac.</th><th>Tot.</th><th>%</th><th>Ac.</th><th>Tot.</th><th>%</th>
+                            <th>Ac.</th><th>Tot.</th><th>%</th><th>Ac.</th><th>Tot.</th><th>%</th>
+                            <th>Ac.</th><th>Tot.</th><th>%</th><th>Ac.</th><th>Tot.</th><th>%</th>
+                            <th class="bg-secondary">Ac.</th><th class="bg-secondary">Tot.</th><th class="bg-secondary">%</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-famema"></tbody>
+                </table>
+            </div>
+            <div class="container-grafico-paulista mt-4 card p-3 shadow-sm">
+                <h5 class="fw-bold mb-3 text-center"><i class="bi bi-graph-up-arrow me-2"></i>Desempenho FAMEMA</h5>
+                <div class="row g-4">
+                    <div class="col-md-6 border-end">
+                        <h6 class="text-center text-muted fw-bold mb-3">Discursivas (%)</h6>
+                        <div style="height: 300px;"><canvas id="chartFamemaDisc"></canvas></div>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="text-center text-muted fw-bold mb-3">Objetivas (%)</h6>
+                        <div style="height: 300px;"><canvas id="chartFamemaObj"></canvas></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="container-famerp" class="aba-conteudo">
+            <div class="table-responsive shadow-sm border rounded">
+                <table class="table table-paulista text-center mb-0">
+                    <thead class="table-dark">
+                        <tr><th colspan="40" class="py-3 bg-white text-dark fw-bold border-bottom">FAMERP</th></tr>
+                        <tr>
+                            <th rowspan="2" class="align-middle">SIM.</th>
+                            <th colspan="3">BIO</th><th colspan="3">QUI</th><th colspan="3">FIS</th>
+                            <th colspan="3" class="bg-primary">TOTAL DISC.</th>
+                            <th colspan="3">BIO</th><th colspan="3">QUÍ</th><th colspan="3">MAT</th>
+                            <th colspan="3">FÍS</th><th colspan="3">HIST</th><th colspan="3">GEO</th>
+                            <th colspan="3">ING</th><th colspan="3">PORT</th>
+                            <th colspan="3" class="bg-primary">TOTAL OBJETIVAS</th>
+                        </tr>
+                        <tr class="sub-header-table">
+                            <th>Ac.</th><th>Tot.</th><th>%</th><th>Ac.</th><th>Tot.</th><th>%</th><th>Ac.</th><th>Tot.</th><th>%</th>
+                            <th class="bg-secondary">Ac.</th><th class="bg-secondary">Tot.</th><th class="bg-secondary">%</th>
+                            <th>Ac.</th><th>Tot.</th><th>%</th><th>Ac.</th><th>Tot.</th><th>%</th><th>Ac.</th><th>Tot.</th><th>%</th>
+                            <th>Ac.</th><th>Tot.</th><th>%</th><th>Ac.</th><th>Tot.</th><th>%</th><th>Ac.</th><th>Tot.</th><th>%</th>
+                            <th>Ac.</th><th>Tot.</th><th>%</th><th>Ac.</th><th>Tot.</th><th>%</th>
+                            <th class="bg-secondary">Ac.</th><th class="bg-secondary">Tot.</th><th class="bg-secondary">%</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-famerp"></tbody>
+                </table>
+            </div>
+            <div class="container-grafico-paulista mt-4 card p-3 shadow-sm">
+                <h5 class="fw-bold mb-3 text-center"><i class="bi bi-graph-up-arrow me-2"></i>Desempenho FAMERP</h5>
+                <div class="row g-4">
+                    <div class="col-md-6 border-end">
+                        <h6 class="text-center text-muted fw-bold mb-3">Discursivas (%)</h6>
+                        <div style="height: 300px;"><canvas id="chartFamerpDisc"></canvas></div>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="text-center text-muted fw-bold mb-3">Objetivas (%)</h6>
+                        <div style="height: 300px;"><canvas id="chartFamerpObj"></canvas></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="container-unifesp" class="aba-conteudo">
+            <div class="table-responsive shadow-sm border rounded">
+                <table class="table table-paulista text-center mb-0">
+                    <thead class="table-dark">
+                        <tr><th colspan="25" class="py-3 bg-white text-dark fw-bold border-bottom">UNIFESP</th></tr>
+                        <tr>
+                            <th rowspan="2" class="align-middle">SIM.</th>
+                            <th colspan="3">BIO</th><th colspan="3">QUI</th><th colspan="3">FIS</th><th colspan="3">MAT</th>
+                            <th colspan="3" class="bg-primary">TOTAL DISC.</th>
+                            <th colspan="3">ING</th><th colspan="3">PORT</th>
+                            <th colspan="3" class="bg-primary">TOTAL OBJETIVAS</th>
+                        </tr>
+                        <tr class="sub-header-table">
+                            <th>Ac.</th><th>Tot.</th><th>%</th><th>Ac.</th><th>Tot.</th><th>%</th>
+                            <th>Ac.</th><th>Tot.</th><th>%</th><th>Ac.</th><th>Tot.</th><th>%</th>
+                            <th class="bg-secondary">Ac.</th><th class="bg-secondary">Tot.</th><th class="bg-secondary">%</th>
+                            <th>Ac.</th><th>Tot.</th><th>%</th><th>Ac.</th><th>Tot.</th><th>%</th>
+                            <th class="bg-secondary">Ac.</th><th class="bg-secondary">Tot.</th><th class="bg-secondary">%</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-unifesp"></tbody>
+                </table>
+            </div>
+            <div class="container-grafico-paulista mt-4 card p-3 shadow-sm">
+                <h5 class="fw-bold mb-3 text-center"><i class="bi bi-graph-up-arrow me-2"></i>Desempenho UNIFESP</h5>
+                <div class="row g-4">
+                    <div class="col-md-6 border-end">
+                        <h6 class="text-center text-muted fw-bold mb-3">Discursivas (%)</h6>
+                        <div style="height: 300px;"><canvas id="chartUnifespDisc"></canvas></div>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="text-center text-muted fw-bold mb-3">Objetivas (%)</h6>
+                        <div style="height: 300px;"><canvas id="chartUnifespObj"></canvas></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal fade" id="modalExcluir" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 20px;">
+                <div class="modal-body text-center p-4">
+                    <i class="bi bi-exclamation-octagon text-danger" style="font-size: 3rem;"></i>
+                    <h3 class="fw-bold mt-2">Limpar tudo?</h3>
+                    <p class="text-muted small">Isso apagará permanentemente todos os dados salvos localmente.</p>
+                    <div class="d-grid gap-2 mt-4">
+                        <button type="button" class="btn btn-danger py-2 fw-bold" id="confirmarExclusaoPaulistas">Sim, limpar</button>
+                        <button type="button" class="btn btn-light py-2 fw-bold" data-bs-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/provas-antigas.js"></script>
+</body>
+
+</html>
