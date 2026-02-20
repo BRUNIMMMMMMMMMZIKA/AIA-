@@ -1,0 +1,270 @@
+/* ==========================================================================
+   AIA - GERENCIADOR DE MENTORIA (ESTILO COMPLETO)
+   ========================================================================== */
+
+:root {
+    /* Cores AIA - Paleta Principal */
+    --aia-main: #00b8d4;            /* Azul Ciano */
+    --aia-main-hover: #0097a7;
+    --aia-accent-blue: #e0f7fa;     /* Azul clarinho fundos */
+    --aia-header-blue: #b2ebf2;     /* Cabeçalho coluna azul */
+    
+    /* Cores Encontros Extras - Sucesso */
+    --aia-success: #2ecc71;         /* Verde Principal */
+    --aia-success-dark: #166534;    /* Verde Escuro Texto */
+    --aia-success-bg: #dcfce7;      /* Verde Soft Badges */
+    --aia-success-header: #c8e6c9;  /* Verde cabeçalho coluna */
+    
+    /* Destaques Temporais */
+    --color-hoje: #0d6efd;          /* Azul Destaque */
+    --bg-hoje: #e7f1ff;
+    --color-amanha: #856404;        /* Amarelo/Laranja Destaque */
+    --bg-amanha: #fff3cd;
+
+    /* Utilitários e Exclusão */
+    --aia-danger: #ef4444;          /* Vermelho Padrão */
+    --aia-removal-red: #d9434e;     /* Vermelho da Imagem do Modal */
+    --bg-light: #f8fafc;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --white: #ffffff;
+    --border-color: #e2e8f0;
+    
+    /* Sombras e Transições */
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Configurações Gerais */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.titulo-pagina {
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.025em;
+}
+
+/* ==========================================================================
+   NAVEGAÇÃO POR ABAS (PILLS)
+   ========================================================================== */
+.nav-pills .nav-link {
+    color: var(--text-muted);
+    background: #f1f5f9;
+    border-radius: 30px;
+    padding: 8px 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: var(--transition-smooth);
+    border: 1px solid transparent;
+}
+
+#pills-todos-tab.active { background-color: var(--text-main) !important; color: white !important; }
+#pills-definidos-tab.active { background-color: var(--aia-main) !important; color: white !important; }
+#pills-extras-tab.active { background-color: var(--aia-success) !important; color: white !important; }
+
+/* ==========================================================================
+   TABELA DE MONITORAMENTO E DESTAQUES TEMPORAIS
+   ========================================================================== */
+.table thead th {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--text-muted);
+    padding: 15px;
+    border: none;
+}
+
+.table-primary {
+    background-color: var(--bg-hoje) !important;
+    border-left: 5px solid var(--color-hoje) !important;
+}
+
+.table-warning {
+    background-color: var(--bg-amanha) !important;
+    border-left: 5px solid #ffc107 !important;
+}
+
+.badge-extra-verde, .badge-def-azul {
+    font-weight: 800;
+    font-size: 0.65rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+    text-transform: uppercase;
+}
+.badge-extra-verde { background-color: var(--aia-success-bg); color: var(--aia-success-dark); }
+.badge-def-azul { background-color: var(--aia-accent-blue); color: var(--aia-main); }
+
+/* ==========================================================================
+   ESTILIZAÇÃO DOS CARDS
+   ========================================================================== */
+.lesson-card {
+    background: var(--white);
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    border-left: 6px solid var(--aia-main);
+    margin-bottom: 1.25rem;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+}
+
+.lesson-card.excluindo {
+    transform: scale(0.9);
+    opacity: 0;
+    max-height: 0;
+    margin-bottom: 0;
+    padding: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+.lesson-card[data-tipo="extra"] { border-left-color: var(--aia-success); }
+
+.lesson-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.lesson-card.concluido-estilo {
+    border-left-color: #94a3b8 !important;
+    opacity: 0.7;
+}
+
+.lesson-header {
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.tab-nav {
+    min-width: 75px;
+    background: var(--aia-accent-blue);
+    padding: 10px;
+    border-radius: 12px;
+    text-align: center;
+}
+.lesson-card[data-tipo="extra"] .tab-nav { background: var(--aia-success-bg); }
+
+.ta { font-size: 0.6rem; font-weight: 800; color: var(--aia-main); text-transform: uppercase; }
+.num-encontro { font-size: 1.6rem; font-weight: 800; color: var(--aia-main); }
+
+.lesson-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    background-color: #fcfdfe;
+}
+.lesson-card.open .lesson-content {
+    max-height: 1200px;
+    border-top: 1px solid var(--border-color);
+}
+
+.mentoria-column-header {
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding: 10px;
+    color: var(--text-main);
+    background-color: var(--aia-header-blue);
+    border-radius: 8px 8px 0 0;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.lesson-card[data-tipo="extra"] .mentoria-column-header { background-color: var(--aia-success-header); }
+
+.answer-box {
+    width: 100%;
+    min-height: 140px;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    font-size: 0.88rem;
+    resize: none;
+    background: white;
+}
+
+/* Botões de Ação no Card */
+.btn-editar i { color: var(--aia-main); }
+.btn-remover i { color: var(--aia-danger); }
+.btn-editar, .btn-remover {
+    background: none;
+    border: none;
+    padding: 5px;
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+}
+.btn-editar:hover, .btn-remover:hover { transform: scale(1.2); }
+
+/* ==========================================================================
+   MODAL DE EXCLUSÃO (ESTILO DA FOTO)
+   ========================================================================== */
+#modalConfirmarExclusao .modal-content {
+    border-radius: 24px; /* Bordas bem arredondadas como na foto */
+    padding: 10px;
+}
+
+#modalConfirmarExclusao .modal-title {
+    color: var(--aia-removal-red);
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+#modalConfirmarExclusao .modal-body p {
+    color: #4b5563;
+    font-size: 1.25rem;
+}
+
+/* Botão "Não" */
+#modalConfirmarExclusao .btn-cancelar-exclusao {
+    background-color: #f8f9fa;
+    border: none;
+    border-radius: 14px;
+    color: #000;
+    padding: 12px 30px;
+    font-weight: 700;
+    transition: background 0.2s;
+}
+#modalConfirmarExclusao .btn-cancelar-exclusao:hover {
+    background-color: #e9ecef;
+}
+
+/* Botão "Sim, excluir" */
+#modalConfirmarExclusao .btn-confirmar-exclusao {
+    background-color: var(--aia-removal-red);
+    border: none;
+    border-radius: 14px;
+    color: #fff;
+    padding: 12px 25px;
+    font-weight: 700;
+    transition: filter 0.2s;
+}
+#modalConfirmarExclusao .btn-confirmar-exclusao:hover {
+    filter: brightness(0.9);
+    color: #fff;
+}
+
+/* Ajuste do botão fechar (X) */
+#modalConfirmarExclusao .btn-close {
+    opacity: 0.5;
+    background-size: 1rem;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE
+   ========================================================================== */
+@media (max-width: 768px) {
+    .lesson-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .tab-nav { width: 100%; }
+}

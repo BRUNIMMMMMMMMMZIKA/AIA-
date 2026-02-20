@@ -1,0 +1,280 @@
+/* ==========================================================================
+   TEMA E VARIÁVEIS GLOBAIS — PADRÃO AIA (REFINADO)
+   ========================================================================== */
+:root {
+    --aia-main: #00b8d4;      /* Turquesa padrão */
+    --aia-success: #05c46b;   /* Verde sólido */
+    --aia-bg: #f1f5f9;        /* Fundo cinza padrão */
+    --aia-paper: #ffffff;
+    --aia-text: #1e293b;
+    --aia-muted: #64748b;
+    --aia-border: #e2e8f0;
+    --aia-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    --aia-dark: #0f172a;
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+body {
+    background: var(--aia-bg);
+    color: var(--aia-text);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+}
+
+main {
+    padding: 15px !important;
+}
+
+/* ==========================================================================
+   SISTEMA DE ABAS (FACULDADES)
+   ========================================================================== */
+.container-abas-paulistas {
+    display: flex;
+    gap: 6px;
+    padding: 6px;
+    background: var(--aia-paper);
+    border-radius: 50px;
+    border: 1px solid var(--aia-border);
+    box-shadow: var(--aia-shadow);
+    width: fit-content;
+    margin: 0 auto 25px auto;
+}
+
+.btn-aba-faculdade {
+    border: none;
+    background: transparent;
+    padding: 8px 18px;
+    border-radius: 40px;
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--aia-muted);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-aba-faculdade:hover {
+    background: rgba(0,184,212,0.08);
+    color: var(--aia-main);
+}
+
+.btn-aba-faculdade.active {
+    background: var(--aia-main);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0,184,212,0.3);
+}
+
+.aba-conteudo {
+    display: none;
+}
+
+.aba-conteudo.active {
+    display: block;
+    animation: fadeIn 0.35s ease;
+}
+
+/* ==========================================================================
+   TABELA REFORMULADA (CORREÇÃO DO "TORTO" E INTERAÇÕES)
+   ========================================================================== */
+.table-responsive-paulista {
+    background: var(--aia-paper);
+    border-radius: 12px;
+    border: 1px solid var(--aia-border);
+    box-shadow: var(--aia-shadow);
+    overflow-x: auto;
+    margin-bottom: 30px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--aia-main) var(--aia-border);
+}
+
+.table-responsive-paulista::-webkit-scrollbar {
+    height: 6px;
+}
+.table-responsive-paulista::-webkit-scrollbar-thumb {
+    background: var(--aia-main);
+    border-radius: 10px;
+}
+
+.table-paulista {
+    width: 100%;
+    min-width: 1000px;
+    border-collapse: collapse;
+    font-size: 0.68rem;
+    table-layout: fixed;
+}
+
+#container-fuvest .table-paulista, 
+#container-unesp .table-paulista, 
+#container-unicamp .table-paulista {
+    min-width: 100%;
+}
+
+.table-title-header {
+    background: var(--aia-paper) !important;
+    font-size: 1rem !important;
+    font-weight: 800 !important;
+    padding: 12px !important;
+    text-align: center;
+    color: var(--aia-dark);
+    border-bottom: 2px solid var(--aia-main) !important;
+}
+
+.table-paulista thead th {
+    background: var(--aia-dark) !important;
+    color: #fff !important;
+    font-weight: 700;
+    text-align: center;
+    padding: 6px 2px;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    text-transform: uppercase;
+}
+
+.table-paulista thead tr:last-child th {
+    background: #1e293b !important;
+    font-size: 0.55rem;
+    padding: 3px 1px !important;
+}
+
+.table-paulista tbody td {
+    padding: 0 !important;
+    border: 1px solid var(--aia-border);
+    height: 35px;
+}
+
+.col-simulado {
+    width: 70px !important;
+    background: #f8fafc !important;
+    font-weight: 800;
+    color: var(--aia-dark);
+    font-size: 0.75rem;
+}
+
+/* Inputs Otimizados */
+.input-paulista {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: var(--aia-dark);
+    transition: all 0.2s;
+}
+
+.input-paulista:focus {
+    background: rgba(0, 184, 212, 0.05);
+    outline: none;
+    box-shadow: inset 0 0 0 1px var(--aia-main);
+}
+
+.input-paulista[readonly] {
+    background: #f1f5f9;
+    color: #94a3b8;
+    cursor: not-allowed;
+}
+
+.perc-materia {
+    font-weight: 800;
+    color: var(--aia-main);
+    background: #fafafa;
+    width: 50px !important;
+}
+
+/* Estilo para as colunas de TOTAL (Destaque) */
+.total-final-acertos, .total-final-questoes {
+    background: #f1f5f9 !important;
+    font-weight: 800;
+}
+
+.total-final-perc {
+    background: var(--aia-success) !important;
+    color: white !important;
+    font-weight: 900;
+}
+
+/* ==========================================================================
+   CARDS DE GRÁFICO (DASHBOARD) — CORREÇÃO FINAL DE ALTURA
+   ========================================================================== */
+.container-grafico-paulista {
+    background: var(--aia-paper);
+    border-radius: 16px;
+    padding: 30px; 
+    border: 1px solid var(--aia-border);
+    box-shadow: var(--aia-shadow);
+    margin-top: 20px;
+    
+    /* ALTURA AUMENTADA PARA NÃO CORTAR O JS */
+    height: 550px !important; 
+    min-height: 550px;
+    
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.grafico-title {
+    font-size: 0.9rem;
+    font-weight: 800;
+    margin-bottom: 30px; 
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--aia-dark);
+    text-transform: uppercase;
+}
+
+.grafico-title::before {
+    content: '';
+    width: 4px;
+    height: 18px;
+    background: var(--aia-main);
+    border-radius: 4px;
+}
+
+/* Container interno para o canvas do Chart.js */
+.container-grafico-paulista .chart-box {
+    position: relative;
+    flex-grow: 1;
+    width: 100%;
+    min-height: 0;
+}
+
+/* Linha divisória para layouts de 2 gráficos (Famema/Famerp) */
+.border-end {
+    border-right: 1px solid var(--aia-border) !important;
+}
+
+/* ==========================================================================
+   ANIMAÇÃO E RESPONSIVIDADE
+   ========================================================================== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .container-abas-paulistas {
+        flex-wrap: wrap;
+        border-radius: 15px;
+        justify-content: center;
+    }
+    
+    .btn-aba-faculdade {
+        padding: 6px 12px;
+        font-size: 0.65rem;
+    }
+
+    .container-grafico-paulista {
+        height: 450px !important; 
+        padding: 15px;
+    }
+    
+    .border-end {
+        border-right: none !important;
+        border-bottom: 1px solid var(--aia-border);
+    }
+}

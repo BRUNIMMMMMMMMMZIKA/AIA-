@@ -1,0 +1,260 @@
+/* ==========================================================================
+   TEMA E VARIÁVEIS GLOBAIS
+   ========================================================================== */
+:root {
+    --aia-main: #00b8d4;    /* Turquesa (Dinâmico via JS) */
+    --aia-success: #05c46b; /* Verde sólido para conclusões */
+    --bg-page: #f8fafc;
+    --paper: #ffffff;
+    --text-main: #334155;
+    --text-muted: #64748b;
+    --border-light: #e2e8f0;
+}
+
+body { 
+    font-family: 'Inter', sans-serif; 
+    background-color: var(--bg-page); 
+    padding: 0; 
+    color: var(--text-main); 
+}
+
+/* ==========================================================================
+   ESTRUTURA DOS CARDS (CADERNO)
+   ========================================================================== */
+.lesson-card {
+    background: var(--paper);
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    border-left: 6px solid var(--aia-main);
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.lesson-header { 
+    padding: 20px 25px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    cursor: pointer; 
+}
+
+.lesson-content {
+    max-height: 0; 
+    overflow: hidden; 
+    transition: max-height 0.4s ease-in-out;
+    /* Linhas de caderno padrão */
+    background-image: linear-gradient(#f1f5f9 1px, transparent 1px);
+    background-size: 100% 2.5rem;
+}
+
+.lesson-card.open .lesson-content { 
+    max-height: 1500px; 
+    border-top: 1px solid #f1f5f9; 
+}
+
+.inner-padding { padding: 30px; }
+
+/* ==========================================================================
+   NAVEGAÇÃO (TABS AULA/TAREFA)
+   ========================================================================== */
+.tab-nav { 
+    background: #f1f5f9; 
+    padding: 5px; 
+    border-radius: 10px; 
+    display: inline-flex; 
+    margin-bottom: 25px; 
+}
+
+.btn-tab {
+    border: none; 
+    padding: 8px 20px; 
+    border-radius: 8px; 
+    font-size: 0.85rem;
+    font-weight: 600; 
+    color: var(--text-muted); 
+    background: transparent; 
+    transition: 0.2s;
+}
+
+.btn-tab.active { 
+    background: white; 
+    color: var(--aia-main); 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+}
+
+/* ==========================================================================
+   GRID DE EXERCÍCIOS (BOLINHAS PREENCHIDAS)
+   ========================================================================== */
+.exercise-grid { 
+    display: flex !important; /* Força o flexbox */
+    flex-direction: row !important; /* Força a ser linha */
+    flex-wrap: wrap !important; /* Permite quebrar linha se não couber */
+    gap: 12px; 
+    margin-bottom: 30px; 
+    width: 100%; /* Ocupa a largura total do card */
+    padding: 10px 0;
+}
+/* 1. Estado Base: Vazia/Cinza */
+.circle {
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center;
+    justify-content: center; 
+    font-size: 0.85rem; 
+    font-weight: 700; 
+    cursor: pointer;
+    border: 2px solid var(--border-light); 
+    background: white; 
+    color: #94a3b8; 
+    transition: all 0.2s ease;
+}
+
+/* 2. ESTADO CONCLUÍDO: Agora sempre SÓLIDO (Preenchido) */
+.circle.done { 
+    background-color: var(--aia-success) !important; 
+    border-color: var(--aia-success) !important; 
+    color: white !important; 
+    box-shadow: 0 2px 5px rgba(5, 196, 107, 0.2);
+}
+
+/* 3. ESTADO SELECIONADO: 
+      Se estiver CONCLUÍDO (done), continua verde. 
+      Se NÃO estiver concluído, fica Azul. */
+.circle.selected {
+    transform: scale(1.15); /* Aumenta para mostrar que está ativa */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+}
+
+/* Se for apenas selecionada (e não concluída) fica Azul */
+.circle.selected:not(.done) {
+    background-color: var(--aia-main) !important;
+    border-color: var(--aia-main) !important;
+    color: white !important;
+}
+
+/* Se for selecionada E concluída, ganha uma borda de destaque ou sombra maior */
+.circle.selected.done {
+    box-shadow: 0 0 0 3px rgba(5, 196, 107, 0.3), 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+/* ==========================================================================
+   VISUALIZADOR DE CONTEÚDO (VIEWER)
+   ========================================================================== */
+.exercise-viewer {
+    display: none; 
+    background-color: #ffffff !important; 
+    background-image: none !important; /* Limpa as linhas de caderno para focar no conteúdo */
+    border: 1px solid var(--border-light);
+    border-radius: 12px; 
+    padding: 25px; 
+    animation: fadeInUp 0.3s ease;
+}
+
+@keyframes fadeInUp { 
+    from { opacity: 0; transform: translateY(10px); } 
+    to { opacity: 1; transform: translateY(0); } 
+}
+
+/* Iframe / Vídeo Responsivo */
+.exercise-viewer iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    border: 2px solid var(--aia-main);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    margin: 15px 0;
+    background-color: #000;
+}
+
+.answer-box {
+    width: 100%; 
+    border: 2px solid #f1f5f9; 
+    border-radius: 8px;
+    padding: 15px; 
+    margin: 15px 0; 
+    transition: 0.2s; 
+    font-size: 0.9rem;
+}
+
+.answer-box:focus { 
+    border-color: var(--aia-main); 
+    outline: none; 
+    background: #fcfdfe; 
+}
+
+/* ==========================================================================
+   BOTÃO CONCLUÍDO (CHECKBOX/SWITCH VERDE SÓLIDO)
+   ========================================================================= */
+.finish-bar {
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+    padding-top: 15px; 
+    border-top: 1px solid #f1f5f9;
+}
+
+/* Forçando o preenchimento verde sólido no Switch */
+.form-check-input {
+    width: 2.5em; /* Um pouco maior para UX */
+    height: 1.25em;
+    cursor: pointer;
+    background-color: #cbd5e1; /* Cor quando desligado */
+    border-color: #cbd5e1;
+}
+
+.form-check-input:checked {
+    background-color: var(--aia-success) !important; /* VERDE SÓLIDO */
+    border-color: var(--aia-success) !important;
+    box-shadow: 0 4px 10px rgba(5, 196, 107, 0.3) !important;
+}
+
+.form-check-label {
+    cursor: pointer;
+    font-weight: 700;
+    margin-left: 8px;
+    color: var(--text-main);
+}
+
+.form-check-input:checked + .form-check-label {
+    color: var(--aia-success); /* Texto também fica verde */
+}
+
+/* Remove brilho azul padrão do navegador */
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.25rem rgba(5, 196, 107, 0.15) !important;
+    border-color: var(--aia-success);
+}
+
+/* --- CONTAINER ESPECÍFICO PARA PDF --- */
+.pdf-container {
+    width: 100%;
+    height: 600px; /* PDFs precisam de altura para leitura */
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid var(--aia-main);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin: 15px 0;
+    background-color: #f1f5f9;
+}
+
+.pdf-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Botão de abrir em nova aba (UX Pro) */
+.btn-fullscreen-pdf {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--aia-main);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+

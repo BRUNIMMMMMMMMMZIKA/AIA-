@@ -1,0 +1,259 @@
+/* ==========================================================================
+   TEMA E VARIÁVEIS GLOBAIS (ESTILO AIA PREMIUM)
+   ========================================================================== */
+:root {
+    --aia-main: #00bcd4;      
+    --aia-main-hover: #00acc1;
+    --aia-success: #05c46b;   
+    --aia-danger: #ff4d4d;    
+    --bg-page: #f4f7f9;
+    --paper: #ffffff;
+    --text-main: #2d3436;
+    --text-muted: #636e72;
+    --border-light: #e9ecef;
+    --bg-soft: #f8fafc;
+    
+    /* Status Colors */
+    --status-ni-bg: #f1f3f5;  --status-ni-text: #495057;
+    --status-i-bg: #fff9db;   --status-i-text: #f08c00;
+    --status-c-bg: #ebfbee;   --status-c-text: #2f9e44;
+
+    /* Shadows suaves */
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --shadow-modal: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+body { 
+    font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+    background-color: var(--bg-page);
+    color: var(--text-main); 
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   TABELA AUDIOVISUAL (BOOSTED)
+   ========================================================================== */
+.section-wrapper .table-responsive {
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    overflow: hidden;
+    background: white;
+}
+
+.section-wrapper thead th {
+    background-color: #d1e7dd !important; /* Verde menta do print */
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 15px 10px;
+    border: 1px solid #adb5bd !important;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.section-wrapper tbody td {
+    padding: 12px 10px;
+    font-size: 0.85rem;
+    border: 1px solid #dee2e6;
+    vertical-align: middle;
+}
+
+/* Alinhamento para o título */
+.section-wrapper tbody td:first-child {
+    text-align: left;
+    font-weight: 500;
+}
+
+/* Edição Inline na Tabela */
+.section-wrapper td textarea.form-control-sm {
+    font-size: 0.75rem;
+    border-radius: 6px;
+    padding: 5px;
+    transition: all 0.2s;
+    background-color: #f8fafc;
+}
+
+.section-wrapper td textarea.form-control-sm:focus {
+    background-color: #fffdec !important; 
+    border: 1px solid #f9eb8f !important;
+    outline: none;
+}
+
+/* ==========================================================================
+   CARDS LITERÁRIOS (LISTA EXPANSÍVEL)
+   ========================================================================= */
+.lesson-card {
+    background: var(--paper);
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    margin-bottom: 16px;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-card);
+}
+
+.lesson-header {
+    padding: 20px 25px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Badge da Banca */
+.tab-nav .ta {
+    background: #e3f2fd;
+    color: #00bcd4;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+}
+
+/* Status Select (Cores Dinâmicas) */
+.status-select {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    outline: none;
+    cursor: pointer;
+}
+
+.status-ni { background-color: var(--status-ni-bg) !important; color: var(--status-ni-text) !important; }
+.status-i { background-color: var(--status-i-bg) !important; color: var(--status-i-text) !important; }
+.status-c { background-color: var(--status-c-bg) !important; color: var(--status-c-text) !important; }
+
+/* Controle de Expansão */
+.lesson-content {
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lesson-card.open .lesson-content {
+    max-height: 2000px;
+    opacity: 1;
+    visibility: visible;
+    padding: 0 25px 25px 25px;
+}
+
+/* Post-it Amarelo */
+.lesson-content textarea {
+    background-color: #fffdec !important;
+    border: 1px solid #f9eb8f !important;
+    border-radius: 12px;
+    padding: 15px;
+    font-size: 0.9rem;
+    color: #5d4037;
+    resize: none;
+}
+
+/* ==========================================================================
+   BOTÕES E COMPONENTES
+   ========================================================================== */
+.btn-primary {
+    background-color: #00bcd4 !important;
+    border: none !important;
+    border-radius: 10px !important;
+    padding: 10px 20px !important;
+    font-weight: 700 !important;
+    transition: all 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #00acc1 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 188, 212, 0.3);
+}
+
+.btn-delete {
+    background: transparent;
+    border: none;
+    color: #adb5bd;
+    transition: color 0.2s;
+    font-size: 1.1rem;
+}
+
+.btn-delete:hover {
+    color: var(--aia-danger);
+}
+
+.label-style {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* ==========================================================================
+   MODAIS (REDIZONADOS E ESTILIZADOS)
+   ========================================================================== */
+.modal-content {
+    border-radius: 20px;
+    border: none;
+    box-shadow: var(--shadow-modal);
+}
+
+.modal-header {
+    border-bottom: 1px solid #f1f3f5;
+    padding: 20px 30px;
+}
+
+.form-control, .form-select {
+    border-radius: 10px !important;
+    border: 1.5px solid #e9ecef !important;
+    padding: 12px 15px !important;
+    font-size: 0.95rem !important;
+}
+
+.form-control:focus {
+    border-color: #00bcd4 !important;
+    box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.1) !important;
+}
+
+/* Modal de Excluir (Vibrante) */
+#modalConfirmarExclusao .modal-content {
+    border-top: 6px solid var(--aia-danger);
+}
+
+.modal-delete-icon {
+    font-size: 4rem;
+    color: var(--aia-danger);
+    line-height: 1;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 4px 6px rgba(255, 77, 77, 0.2));
+}
+
+.btn-confirm-delete {
+    background-color: var(--aia-danger) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 12px !important;
+    font-weight: 700 !important;
+    padding: 14px !important;
+    transition: opacity 0.2s;
+}
+
+.btn-confirm-delete:hover {
+    opacity: 0.9;
+}
+
+/* ==========================================================================
+   ANIMAÇÕES
+   ========================================================================== */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.obra-item {
+    animation: fadeInUp 0.4s ease-out forwards;
+}

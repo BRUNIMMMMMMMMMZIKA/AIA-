@@ -1,0 +1,198 @@
+/* ==========================================================================
+   AIA - MEUS DADOS (ESTILO COMPLETO E UNIFICADO)
+   ========================================================================== */
+
+:root {
+    /* Cores do Tema */
+    --aia-main: #00b8d4;
+    --aia-success: #05c46b; /* Verde Planilha */
+    --aia-purple: #705cf6;
+    --aia-danger: #ef4444;  /* Vermelho Planilha */
+    --aia-warning: #f59e0b; /* Amarelo Planilha */
+    
+    /* Cores de Interface */
+    --bg-page: #f4f7fa;
+    --paper: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-radius: 12px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 12px -2px rgba(0,0,0,0.08);
+}
+
+body { 
+    font-family: 'Inter', sans-serif; 
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* Títulos */
+.titulo-pagina { 
+    font-size: 1.75rem; 
+    font-weight: 800; 
+    letter-spacing: -0.025em; 
+}
+
+/* ==========================================================================
+   CARDS E ESTRUTURA
+   ========================================================================== */
+.card {
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+}
+
+.lesson-card {
+    background: var(--paper);
+    border-radius: var(--border-radius);
+    border: 1px solid #eef2f6;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.lesson-header, .card-header {
+    padding: 1.25rem 1.5rem;
+    background: #ffffff;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+/* ==========================================================================
+   MÁGICA DAS CORES (PROFICIÊNCIA) - BLINDAGEM TOTAL
+   ========================================================================== */
+
+/* Seletor específico para os selects da tabela de proficiência */
+select.proficiencia-select {
+    font-weight: 700 !important;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    /* Mata a aparência nativa (cinza/3D) do navegador */
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    /* Remove a setinha SVG do Bootstrap que bloqueia o fundo */
+    background-image: none !important; 
+    transition: all 0.2s ease;
+    padding: 0.4rem 0.5rem;
+    font-size: 0.85rem;
+}
+
+/* Estado ALTA (Verde) */
+select.proficiencia-select.bg-alta {
+    background-color: var(--aia-success) !important;
+    color: white !important;
+    border-color: #059669 !important;
+}
+
+/* Estado MÉDIA (Amarelo) */
+select.proficiencia-select.bg-media {
+    background-color: var(--aia-warning) !important;
+    color: white !important;
+    border-color: #d97706 !important;
+}
+
+/* Estado BAIXA (Vermelho) */
+select.proficiencia-select.bg-baixa {
+    background-color: var(--aia-danger) !important;
+    color: white !important;
+    border-color: #dc2626 !important;
+}
+
+/* Ajuste das opções internas para não ficarem coloridas também */
+.proficiencia-select option {
+    background-color: var(--paper) !important;
+    color: var(--text-main) !important;
+    font-weight: normal;
+}
+
+/* ==========================================================================
+   TABELAS MODERNAS
+   ========================================================================== */
+.table {
+    margin-bottom: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.table thead th {
+    background-color: #f8fafc;
+    color: var(--text-muted);
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.table tbody td {
+    padding: 1rem;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: middle;
+}
+
+/* ==========================================================================
+   FORMULÁRIOS E INPUTS
+   ========================================================================== */
+.form-label.small {
+    font-size: 0.75rem;
+    margin-bottom: 0.4rem;
+    display: block;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.form-select, .form-control {
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.875rem;
+    color: var(--text-main);
+    background-color: var(--paper);
+    transition: all 0.2s;
+}
+
+.form-select:focus, .form-control:focus {
+    border-color: var(--aia-main);
+    box-shadow: 0 0 0 3px rgba(0, 184, 212, 0.15);
+    outline: none;
+}
+
+/* ==========================================================================
+   BOTÕES
+   ========================================================================== */
+.btn {
+    padding: 0.8rem 1.5rem;
+    font-weight: 700;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.btn-primary { 
+    background-color: var(--aia-purple); 
+    border: none; 
+}
+
+.btn-primary:hover {
+    background-color: #5d4ad1;
+    transform: translateY(-1px);
+}
+
+.btn:active { transform: scale(0.98); }
+
+/* ==========================================================================
+   UTILITÁRIOS E RESPONSIVIDADE
+   ========================================================================== */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 768px) {
+    .titulo-pagina { font-size: 1.5rem; }
+    .table td select { min-width: 130px; }
+}

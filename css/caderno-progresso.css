@@ -1,0 +1,274 @@
+/* ==========================================================================
+   TEMA E VARIÁVEIS (PALETA REFINADA)
+   ========================================================================== */
+:root {
+    --aia-main: #00b8d4;
+    --aia-success: #05c46b;
+    --aia-purple: #705cf6;
+    --aia-danger: #ef4444;
+    --aia-warning: #f59e0b;
+    --bg-page: #f4f7fa;
+    --paper: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-radius: 12px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 12px -2px rgba(0,0,0,0.08);
+}
+
+body { 
+    font-family: 'Inter', sans-serif; 
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* Títulos */
+.titulo-pagina { 
+    font-size: 1.75rem; 
+    font-weight: 800; 
+    letter-spacing: -0.025em; 
+}
+
+/* ==========================================================================
+   SISTEMA DE ABAS (BOTÕES DE ALTERNÂNCIA)
+   ========================================================================== */
+.nav-pills {
+    background: #e2e8f0;
+    padding: 4px;
+    border-radius: 14px;
+    display: inline-flex;
+}
+
+.nav-pills .nav-link {
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 8px 20px;
+    border-radius: 10px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+}
+
+.nav-pills .nav-link.active {
+    background-color: var(--paper) !important;
+    color: var(--aia-main) !important;
+    box-shadow: var(--shadow-sm);
+}
+
+.nav-pills .nav-link:not(.active):hover {
+    background-color: rgba(255,255,255,0.5);
+    color: var(--text-main);
+}
+
+/* ==========================================================================
+   FILTROS E SELETORES
+   ========================================================================== */
+.form-label.small {
+    font-size: 0.75rem;
+    margin-bottom: 0.4rem;
+    display: block;
+}
+
+/* Estilização dos Selects de Filtro e Inputs */
+.form-select, .form-control {
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    color: var(--text-main);
+    background-color: var(--paper);
+    transition: all 0.2s;
+}
+
+.form-select:focus, .form-control:focus {
+    border-color: var(--aia-main);
+    box-shadow: 0 0 0 3px rgba(0, 184, 212, 0.15);
+    outline: none;
+}
+
+/* ==========================================================================
+   CARDS E TABELAS
+   ========================================================================== */
+.lesson-card {
+    background: var(--paper);
+    border-radius: var(--border-radius);
+    border: 1px solid #eef2f6;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.lesson-header {
+    padding: 1.25rem 1.5rem;
+    background: #ffffff;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+/* Tabela Estilo "Modern List" */
+.table {
+    margin-bottom: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.table thead th {
+    background-color: #f8fafc;
+    color: var(--text-muted);
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+    white-space: nowrap; /* Impede quebra de título */
+}
+
+.table tbody td {
+    padding: 1rem;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: middle;
+}
+
+/* FIX: Ajuste de largura para nomes por extenso (Área e Matéria) */
+.col-area {
+    min-width: 170px !important;
+}
+
+.col-materia {
+    min-width: 200px !important;
+}
+
+/* Garante que os selects dentro da tabela não encolham */
+.table td select {
+    white-space: nowrap;
+    width: 100%;
+    min-width: 140px;
+}
+
+/* Linha com efeito de hover suave */
+.table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+    background-color: #fcfdfe;
+}
+
+/* Status Dinâmicos dentro da Tabela */
+.status-select {
+    border: 1px solid #cbd5e1;
+    padding: 0.4rem 0.5rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.status-select.bg-ni { 
+    background-color: #f1f5f9 !important; 
+    color: #64748b; 
+    border-color: #cbd5e1;
+}
+
+.status-select.bg-concluido { 
+    background-color: #ecfdf5 !important; 
+    color: #059669; 
+    border-color: #10b981; 
+}
+
+/* Textarea de Anotações */
+.answer-box-table {
+    min-height: 42px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 0.5rem;
+    font-size: 0.85rem;
+    resize: vertical;
+    width: 100%;
+    transition: border-color 0.2s;
+}
+
+.answer-box-table:focus {
+    border-color: var(--aia-main);
+    outline: none;
+}
+
+/* ==========================================================================
+   BOTÕES E AÇÕES
+   ========================================================================== */
+.btn-success { background-color: var(--aia-success); border: none; }
+.btn-primary { background-color: var(--aia-purple); border: none; }
+
+.btn {
+    padding: 0.6rem 1.2rem;
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    transition: transform 0.1s, opacity 0.2s;
+}
+
+.btn:active { transform: scale(0.98); }
+
+/* Botão Remover (Lixeirinha) */
+.col-action { width: 60px; text-align: center; }
+
+.btn-remove {
+    background: transparent;
+    border: none;
+    color: #cbd5e1;
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.btn-remove:hover {
+    color: var(--aia-danger);
+    background-color: #fee2e2;
+}
+
+/* Badges de Desempenho */
+.badge {
+    padding: 0.6em 1em;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+/* Bordas Temáticas Superiores */
+.border-success { border-top: 4px solid var(--aia-success) !important; }
+.border-purple { border-top: 4px solid var(--aia-purple) !important; }
+
+/* ==========================================================================
+   MODAL E RESPONSIVIDADE
+   ========================================================================== */
+.modal-content {
+    border-radius: var(--border-radius);
+    border: none;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+}
+
+/* Ajustes para telas menores e Scroll Horizontal se necessário */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 768px) {
+    .nav-pills { width: 100%; display: flex; }
+    .nav-pills .nav-item { flex: 1; }
+    .nav-pills .nav-link { text-align: center; padding: 10px 5px; }
+    
+    .titulo-pagina { font-size: 1.5rem; }
+    
+    .lesson-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start !important;
+    }
+
+    /* Em mobile, permitimos o scroll para não espremer os nomes por extenso */
+    .table td select {
+        min-width: 160px;
+    }
+}

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIA - Caderno de Progresso</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/caderno-progresso.css">
+
+    <script src="cadernoProgresso.js" defer></script>
+</head>
+
+<body>
+ <nav class="navbar navbar-expand-lg navbar-aia sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="Logo AIA_Symbol.png" alt="AIA Logo"></a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="alunopresencial.html"><i
+                                class="bi bi-house-door me-1"></i> Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i
+                                class="bi bi-journal-bookmark me-2 text-secondary"></i> Atualizações</a></li>
+                </ul>
+                <div class="d-flex flex-column me-5">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-1">
+                            <li class="breadcrumb-item"><a href="#">Caderno de Progresso</a></li>
+                        </ol>
+                    </nav>
+                    <h1 class="h4 fw-bold mb-0">Questões e Redações</h1>
+                </div>
+                <div class="user-profile d-flex align-items-center">
+                    <div class="user-info text-end d-none d-md-block">
+                        <span class="user-name">Lucas Ferreira</span>
+                        <span class="user-status">Estudante Premium</span>
+                    </div>
+                    <div class="user-avatar ms-3">LF</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid px-4 mt-4">
+        <div class="mb-4">
+            <h2 class="titulo-pagina">Caderno de Progresso</h2>
+            <p class="text-muted">Acompanhe seu desempenho detalhado por área e matéria.</p>
+        </div>
+
+        <div class="lesson-card p-3 mb-4">
+            <div class="row g-3">
+                <div class="col-12 col-md-4">
+                    <label class="form-label small fw-bold text-muted text-uppercase">1. Selecione a Banca</label>
+                    <select class="form-select" id="filter-banca">
+                        <option value="all">Todas as Bancas</option>
+                        <option value="ENEM">ENEM</option>
+                        <option value="FUVEST">FUVEST</option>
+                        <option value="UNICAMP">UNICAMP</option>
+                        <option value="VUNESP">VUNESP</option>
+                    </select>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <label class="form-label small fw-bold text-muted text-uppercase">2. Área do Conhecimento</label>
+                    <select class="form-select" id="filter-area">
+                        <option value="all">Todas as Áreas</option>
+                        <option value="MAT">Matemática</option>
+                        <option value="NAT">Ciências da Natureza</option>
+                        <option value="HUM">Ciências Humanas</option>
+                        <option value="LIN">Linguagens</option>
+                        <option value="RD">Redação</option>
+                    </select>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <label class="form-label small fw-bold text-muted text-uppercase">3. Matéria Específica</label>
+                    <select class="form-select" id="filter-materia" disabled>
+                        <option value="all">Selecione uma área primeiro</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <ul class="nav nav-pills mb-4 gap-2" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-questoes-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-questoes" type="button" role="tab">
+                    <i class="bi bi-check-circle me-2"></i>Questões
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-redacoes-tab" data-bs-toggle="pill" data-bs-target="#pills-redacoes"
+                    type="button" role="tab">
+                    <i class="bi bi-pen me-2"></i>Redações
+                </button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="pills-tabContent">
+
+            <div class="tab-pane fade show active" id="pills-questoes" role="tabpanel">
+                <div class="lesson-card border-success">
+                    <div class="lesson-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0 fw-bold"><i class="bi bi-exclamation-octagon me-2 text-success"></i>Caderno de
+                            Erros</h5>
+                        <button class="btn btn-success" id="add-questao">
+                            <i class="bi bi-plus-circle"></i> Nova Questão
+                        </button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table align-middle" id="tabela-questoes">
+                            <thead>
+                                <tr>
+                                    <th style="width: 130px;">Data</th>
+                                    <th style="width: 110px;">Banca</th>
+                                    <th style="width: 110px;">Área</th>
+                                    <th style="width: 140px;">Matéria</th>
+                                    <th>Tipo de Erro</th>
+                                    <th style="width: 100px;">Revisado?</th>
+                                    <th>Lição Aprendida</th>
+                                    <th class="col-action"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-redacoes" role="tabpanel">
+                <div class="lesson-card border-purple">
+                    <div class="lesson-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0 fw-bold"><i class="bi bi-pencil-square me-2"
+                                style="color: var(--aia-purple);"></i>Acompanhamento de Redação</h5>
+                        <button class="btn btn-primary" id="add-redacao">
+                            <i class="bi bi-plus-circle"></i> Nova Redação
+                        </button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table align-middle" id="tabela-redacoes">
+                            <thead>
+                                <tr>
+                                    <th style="width: 130px;">Data</th>
+                                    <th>Tema</th>
+                                    <th style="width: 110px;">Banca</th>
+                                    <th style="width: 100px;">Nota</th>
+                                    <th style="width: 80px;">%</th>
+                                    <th>Metas</th>
+                                    <th class="col-action"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content shadow-lg">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold text-danger">Remover?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body py-3">
+                    <p class="mb-0 text-muted">Deseja excluir este registro?</p>
+                </div>
+                <div class="modal-footer border-0 pt-0">
+                    <button type="button" class="btn btn-light btn-sm" data-bs-dismiss="modal">Não</button>
+                    <button type="button" id="btnConfirmDelete" class="btn btn-danger btn-sm px-3">Sim, excluir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

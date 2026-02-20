@@ -1,0 +1,294 @@
+/* ================================
+   NAVBAR AIA
+================================= */
+.navbar-aia {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #e2e8f0;
+    padding: 0.8rem 0;
+    transition: all 0.3s ease;
+    margin-bottom: 50px;
+}
+
+.navbar-brand img {
+    height: 130px;
+    width: auto;
+}
+
+.nav-link {
+    color: #64748b !important;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.5rem 1.2rem !important;
+    transition: 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--aia-main) !important;
+}
+
+.nav-link.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-link.dropdown-toggle::after {
+    content: '\F282';
+    font-family: 'bootstrap-icons';
+    font-size: 0.7rem;
+    margin-left: 5px;
+}
+
+
+/* ================================
+   PERFIL DO USUÁRIO
+================================= */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 14px;
+    border-radius: 50px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    transition: 0.3s ease;
+}
+
+.user-profile:hover {
+    background: #fff;
+    border-color: var(--aia-main);
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--aia-main);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.75rem;
+}
+
+.user-name {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #1e293b;
+    display: block;
+}
+
+.user-status {
+    font-size: 0.65rem;
+    color: #94a3b8;
+}
+
+
+/* ================================
+   DROPDOWNS MULTINÍVEL
+================================= */
+
+.dropdown-item.active,
+.dropdown-item:active {
+    background-color: var(--aia-main) !important;
+    color: #fff !important;
+}
+
+/* referência para posicionamento */
+.navbar-nav .dropdown {
+    position: relative;
+}
+
+/* menu sempre presente no fluxo (evita perder hover no caminho) */
+.navbar-nav .dropdown-menu {
+    display: block !important;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    margin-top: 0 !important;
+    top: 100%; /* encosta direto no botão */
+    transform: none; /* remove deslocamento que criava o espaço */
+    transition: opacity 0.15s ease;
+}
+
+/* abre no hover */
+.navbar-nav .dropdown:hover > .dropdown-menu,
+.navbar-nav .dropdown-menu:hover,
+.navbar-nav .dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* pequena área de tolerância abaixo do botão */
+.navbar-nav .dropdown::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 14px;
+}
+
+
+/* estilo visual do menu */
+.dropdown-menu {
+    background-color: #fff !important;
+    border-radius: 12px !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08) !important;
+    padding: 8px !important;
+    min-width: 200px;
+}
+
+.dropdown-item {
+    border-radius: 8px;
+    padding: 8px 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #475569 !important;
+    display: flex;
+    align-items: center;
+    transition: 0.2s ease;
+    background: transparent !important;
+}
+
+.dropdown-item:hover {
+    background-color: #f8fafc !important;
+    color: var(--aia-main) !important;
+    padding-left: 20px;
+}
+
+
+/* ================================
+   SUBMENU (3º NÍVEL)
+================================= */
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu > .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: 0;
+    margin-left: 6px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(8px);
+    transition: 0.15s ease;
+}
+
+.dropdown-submenu:hover > .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+
+.dropdown-submenu > .dropdown-item::after {
+    content: '\F285';
+    font-family: 'bootstrap-icons';
+    margin-left: auto;
+    font-size: 0.6rem;
+    opacity: 0.4;
+}
+
+
+/* ================================
+   SUB-HEADER DISCIPLINAS
+================================= */
+.subject-header {
+    background: #ffffff;
+    padding: 15px 0;
+    border-bottom: 1px solid #edf2f7;
+    margin-bottom: 30px;
+}
+
+.breadcrumb {
+    margin-bottom: 4px;
+}
+
+.breadcrumb-item {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.breadcrumb-item a {
+    color: var(--aia-main);
+    text-decoration: none;
+}
+
+.breadcrumb-item.active {
+    color: #94a3b8;
+}
+
+.badge-premium {
+    background: var(--aia-gradient);
+    color: white;
+    font-size: 0.65rem;
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(58, 123, 213, 0.2);
+}
+
+
+/* ================================
+   DROPDOWN SIMPLES (Área Escolar)
+================================= */
+
+.dropdown {
+    position: relative;
+}
+
+/* garante que o menu encoste direto no botão */
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 0;
+    display: none;
+}
+
+/* abre no hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* área invisível para não perder hover ao descer */
+.dropdown::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 15px;
+}
+
+/* ================================
+   MOBILE
+================================= */
+@media (max-width: 991px) {
+
+    .navbar-nav .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        transform: none !important;
+    }
+
+    .dropdown-submenu > .dropdown-menu {
+        position: static;
+        margin-left: 15px;
+        box-shadow: none !important;
+        border: none !important;
+        background: #f1f5f9 !important;
+        transform: none;
+    }
+}

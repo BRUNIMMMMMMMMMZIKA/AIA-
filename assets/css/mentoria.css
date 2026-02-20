@@ -1,0 +1,262 @@
+:root{
+  --bg: #f3f7ff;
+  --text: #0f2b46;
+  --muted: rgba(15,43,70,.70);
+
+  --card: #ffffff;
+  --line: rgba(15,43,70,.12);
+
+  --g1: #0bbf86;
+  --g2: #0a77c9;
+
+  --shadow: 0 18px 50px rgba(10, 25, 50, .08);
+  --shadow2: 0 10px 25px rgba(10, 25, 50, .10);
+
+  --r-xl: 22px;
+  --r-lg: 18px;
+  --r-md: 14px;
+
+  --page-max: 1280px;
+  --gap: 18px;
+
+  /* PADRÃO DOS CARDS */
+  --card-w: 260px;     /* largura consistente */
+  --card-h: 340px;     /* altura consistente (muda aqui) */
+  --card-head-h: 48px; /* altura do header do card */
+}
+
+*{ box-sizing: border-box; }
+html, body{ height: 100%; }
+body{
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(900px 450px at 14% 8%, rgba(10,119,201,.12), transparent 60%),
+    radial-gradient(900px 450px at 86% 12%, rgba(11,191,134,.10), transparent 60%),
+    var(--bg);
+}
+
+/* ===== HEADER PADRÃO ===== */
+.app-header{
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(243,247,255,.72);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(15,43,70,.10);
+}
+.app-header__inner{
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 14px 18px;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 14px;
+}
+.app-brand{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+}
+.app-logo{
+  width: 44px;
+  height: 44px;
+  border-radius: 16px;
+  display:grid;
+  place-items:center;
+  font-weight: 950;
+  color:#fff;
+  background: linear-gradient(135deg, var(--g1), var(--g2));
+  box-shadow: 0 14px 35px rgba(10,119,201,.18);
+}
+.app-brand__title{
+  font-weight: 950;
+  letter-spacing: .2px;
+  line-height: 1.1;
+}
+.app-brand__sub{
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.app-actions{
+  display:flex;
+  gap: 10px;
+}
+
+/* ===== MAIN ===== */
+.app-main{
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 18px;
+}
+.page-head{
+  display:flex;
+  justify-content: flex-start;
+  margin: 12px 0 16px;
+}
+.page-chip{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: var(--r-xl);
+  background: linear-gradient(90deg, rgba(11,191,134,.16), rgba(10,119,201,.14));
+  border: 1px solid rgba(10,119,201,.18);
+  box-shadow: var(--shadow2);
+}
+.page-chip__icon{
+  width: 38px;
+  height: 38px;
+  border-radius: 14px;
+  display:grid;
+  place-items:center;
+  background:#fff;
+  border: 1px solid rgba(10,119,201,.18);
+}
+.page-chip__text{
+  font-weight: 900;
+}
+
+/* ===== GRID PROFISSIONAL (cards padronizados) ===== */
+.cards-grid{
+  display:grid;
+  gap: var(--gap);
+
+  /* Colunas com largura fixa e centralizadas */
+  grid-template-columns: repeat(auto-fill, minmax(var(--card-w), 1fr));
+  justify-items: center;
+}
+
+/* ===== CARD PADRÃO (MESMO TAMANHO SEMPRE) ===== */
+.card{
+  width: min(var(--card-w), 100%);
+  height: var(--card-h);
+
+  background: var(--card);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(15,43,70,.08);
+  overflow: hidden;
+  position: relative;
+
+  display:flex;
+  flex-direction: column;
+}
+.card::before{
+  content:"";
+  position:absolute;
+  top:0; left:0; right:0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--g1), var(--g2));
+}
+.card__head{
+  height: var(--card-head-h);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight: 950;
+  letter-spacing: .3px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(10,119,201,.06), rgba(255,255,255,0));
+}
+
+/* Conteúdo vira “área com scroll” se tabela for maior */
+.card__body{
+  padding: 10px 12px 12px;
+  flex: 1;
+  overflow: auto;
+}
+
+/* ===== TABELA LIMPA ===== */
+.table{
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.table thead th{
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .7px;
+  color: var(--muted);
+  background: #f7fbff;
+  padding: 8px 8px;
+  border-bottom: 1px solid var(--line);
+  text-align:center;
+}
+.table td{
+  padding: 6px;
+  border-top: 1px solid var(--line);
+}
+.rowhead{
+  width: 44%;
+  padding: 8px 8px;
+  font-weight: 850;
+  border-right: 1px solid var(--line);
+  white-space: nowrap;
+  text-align:left;
+}
+
+/* inputs */
+.cell{
+  width: 100%;
+  height: 34px;
+  border-radius: 14px;
+  border: 1px solid rgba(15,43,70,.18);
+  padding: 8px 10px;
+  outline:none;
+}
+.cell:focus{
+  border-color: rgba(10,119,201,.45);
+  box-shadow: 0 0 0 4px rgba(10,119,201,.16);
+}
+
+/* botões */
+.btn{
+  border:0;
+  border-radius: 16px;
+  padding: 11px 16px;
+  cursor:pointer;
+  font-weight: 900;
+}
+.btn-primary{
+  color:#fff;
+  background: linear-gradient(90deg, var(--g1), var(--g2));
+  box-shadow: 0 16px 35px rgba(10,119,201,.18);
+}
+.btn-ghost{
+  background:#eef3f8;
+  color:#0b2b4a;
+  box-shadow: 0 12px 30px rgba(10, 25, 50, .08);
+}
+
+/* ===== FOOTER PADRÃO ===== */
+.app-footer{
+  margin-top: 14px;
+  border-top: 1px solid rgba(15,43,70,.10);
+  background: rgba(255,255,255,.65);
+  backdrop-filter: blur(10px);
+}
+.app-footer__inner{
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 14px 18px;
+  display:flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.app-footer__muted{
+  color: var(--muted);
+}
+
+/* Mobile */
+@media (max-width: 520px){
+  .app-header__inner{ flex-direction: column; align-items: flex-start; }
+  .app-actions{ width: 100%; }
+  .btn{ width: 100%; }
+  .app-footer__inner{ flex-direction: column; }
+}

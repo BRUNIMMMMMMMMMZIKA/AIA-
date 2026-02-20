@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AIA • Aluno Presencial</title>
+  <link rel="stylesheet" href="styleAluno.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <script src="/aia-atualizado/AIA/js/auth.js"></script>
+  
+<!-- OVERLAY (mobile) -->
+<div class="overlay"></div>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="logo">
+      <img src="Logo AIA_Symbol.png" alt="Logo AIA">
+      <button onclick="logout()">Sair</button>
+
+    </div>
+
+    <nav>
+      <h4>Áreas do Conhecimento</h4>
+
+      <div class="menu-group">
+        <button class="menu-item">🌱 Natureza</button>
+        <div class="submenu">
+         <a href="caderno-aula.html?disciplina=biologia"><span>Biologia</span></a>
+        <a href="caderno-aula.html?disciplina=quimica"><span>Química</span></a>
+          <a href="caderno-aula.html?disciplina=fisica"><span>Física</span></a>
+        </div>
+      </div>
+
+      <div class="menu-group">
+        <button class="menu-item">🗣 Linguagens</button>
+        <div class="submenu">
+          <a href="caderno-aula.html?disciplina=linguagens"><span>Língua Portuguesa</span></a>
+          <a href="caderno-aula.html?disciplina=literatura"><span>Literatura</span></a>
+          <a href="caderno-aula.html?disciplina=gramatica"><span>Gramática</span></a>
+          <a href="caderno-aula.html?disciplina=redacao"><span>Redação</span></a>
+          <a href="caderno-aula.html?disciplina=redacao"><span>Língua Estrangeira</span></a>
+          <a href="caderno-aula.html?disciplina=artes"><span>Artes</span></a>
+        </div>
+      </div>
+
+      <div class="menu-group">
+        <button class="menu-item">🌎 Humanas</button>
+        <div class="submenu">
+          <a href="caderno-aula.html?disciplina=historia"><span>História</span></a>
+          <a href="caderno-aula.html?disciplina=geografia"><span>Geografia</span></a>
+          <a href="caderno-aula.html?disciplina=filosofia"><span>Sociologia</span></a>
+          <a href="caderno-aula.html?disciplina=filosofia"><span>Filosofia</span></a>
+        </div>
+      </div>
+
+      <div class="menu-group">
+        <button class="menu-item matematica"><a href="caderno-aula.html?disciplina=matematica">📐 Matemática</a></button>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="content">
+
+    <header class="topbar">
+      <!-- BOTÃO HAMBURGUER -->
+       <button class="close-sidebar" aria-label="Fechar menu">✕</button>
+
+      <button class="menu-toggle" aria-label="Abrir menu">☰</button>
+
+      <div>
+        <h1>Aluno Presencial</h1> 
+        <span class="subtitle">Acompanhamento completo do estudante</span>
+      </div>
+    </header>
+
+    <section class="cards">
+
+      <div class="card">
+        <h3>📅 Calendário</h3>
+        <p>Visualize provas, aulas e eventos acadêmicos.</p>
+      </div>
+
+      <a  href = "Mentoria.html" class="card">
+        <h3>🧠 Mentoria</h3>
+        <p>Acompanhamento individual com professores.</p>
+      </a>
+
+      <div class="card">
+        <h3>⏰ Cronograma de Aulas</h3>
+        <p>Horários organizados por disciplina.</p>
+      </div>
+
+      <div class="card">
+        <h3>📘 Planos de Estudo</h3>
+        <p>Estudos personalizados por objetivo.</p>
+      </div>
+
+      <div class="card">
+        <h3>🔁 Revisões</h3>
+        <p>Reforce conteúdos importantes.</p>
+      </div>
+
+      <div class="card">
+        <h3>📖 Obras Literárias</h3>
+        <p>Lista de leituras obrigatórias.</p>
+      </div>
+
+      <div class="card">
+        <h3>Acompanhamento Psicológico</h3>
+        <p>Suporte emocional e pedagógico.</p>
+      </div>
+
+    </section>
+  </main>
+
+</div>
+
+<script src="/aia-atualizado/AIA/js/auth.js"></script>
+<script>
+  // protege a página
+  requireAuth("/aia-atualizado/AIA/login.html").then(() => {
+    // preenche nome/perfil onde tiver data-user
+    hydrateUserUI();
+  });
+</script>
+
+
+<script src="script.js"></script>
+</body>
+</html>

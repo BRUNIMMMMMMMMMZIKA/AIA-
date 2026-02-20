@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIA - Caderno de Aula</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/cardenoAula.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <script src="../js/dinamicaCores.js"></script>
+</head>
+
+<body>
+<!-- HEADER -->
+ <nav class="navbar navbar-expand-lg navbar-aia sticky-top">
+    <div class="container">
+        <!-- Logo -->
+        <a class="navbar-brand" href="#">
+            <!-- Substitua pelo caminho real da sua imagem da logo AIA -->
+            <img src="Logo AIA_Symbol.png" alt="AIA Logo">
+            <!-- <span class="ms-2 fw-bold text-dark d-none d-sm-inline">SISTEMA DE ENSINO</span> -->
+        </a>
+
+        <!-- Botão Mobile -->
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links de Navegação -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="bi bi-house-door me-1"></i> Início</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" id="cadernosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-journal-text me-1"></i> Conteúdos
+                    </a>
+                    <ul class="dropdown-menu border-0 shadow-lg" aria-labelledby="cadernosDropdown">
+                            <!-- GRAVAÇÕES -->
+                                <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle py-2" href="#">
+                                    <i class="bi bi-journal-bookmark me-2 text-secondary"></i>
+                                    Gravações
+                                </a>
+                                <!-- DENTRO DE GRAVAÇõES -->
+                                <ul class="dropdown-menu shadow-lg">
+                                    
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item dropdown-toggle py-2" href="#">
+                                            <i class="bi bi-journals me-2 text-warning"></i>
+                                            Caderno de Teoria
+                                        </a>
+
+                                        <ul class="dropdown-menu shadow-lg">
+                                            <li>
+                                                <a class="dropdown-item py-2" href="caderno-teoria.html">
+                                                    <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                                    Volume 1
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item py-2" href="caderno-teoria.html">
+                                                    <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                                    Volume 2
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item py-2" href="caderno-teoria.html">
+                                                    <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                                    Volume 3
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item py-2" href="caderno-teoria.html">
+                                                    <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                                    Volume 4
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item dropdown-toggle py-2" href="#">
+                                            <i class="bi bi-journals me-2 text-warning"></i>
+                                            Caderno de Aula
+                                        </a>
+
+                                        <ul class="dropdown-menu shadow-lg">
+                                            <li>
+                                                <a class="dropdown-item py-2" href="caderno-aula.html">
+                                                    <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                                    Volume 1
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item py-2" href="caderno-aula.html">
+                                                    <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                                    Volume 2
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item py-2" href="caderno-aula.html">
+                                                    <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                                    Volume 3
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item py-2" href="caderno-aula.html">
+                                                    <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                                    Volume 4
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item dropdown-toggle py-2" href="#">
+                                            <i class="bi bi-journals me-2 text-warning"></i>
+                                            Caderno de Estudo Avançado
+                                        </a>
+
+                                        <ul class="dropdown-menu shadow-lg">
+                                            <li>
+                                                <a class="dropdown-item py-2" href="caderno-estudo.html">
+                                                    <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                                    Volume 1
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item py-2" href="caderno-estudo.html">
+                                                    <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                                    Volume 2
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item py-2" href="caderno-estudo.html">
+                                                    <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                                    Volume 3
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item py-2" href="caderno-estudo.html">
+                                                    <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                                    Volume 4
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item dropdown-toggle py-2" href="#">
+                                            <i class="bi bi-journals me-2 text-warning"></i>
+                                            Revisão
+                                        </a>
+
+                                        <ul class="dropdown-menu shadow-lg">
+                                            <li>
+                                                <a class="dropdown-item py-2" href="#">
+                                                    <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                                    Teoria
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item py-2" href="#">
+                                                    <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                                    Exercícios
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                </li>
+                            <!-- MATERIAIS -->
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle py-2" href="#">
+                                        <i class="bi bi-journal-bookmark me-2 text-secondary"></i>
+                                        Materiais
+                                    </a>
+                                <!-- DENTRO DE MATERIAIS -->
+                                    <ul class="dropdown-menu shadow-lg">
+                                        
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item dropdown-toggle py-2" href="#">
+                                                <i class="bi bi-journals me-2 text-warning"></i>
+                                                Caderno de Teoria
+                                            </a>
+
+                                            <ul class="dropdown-menu shadow-lg">
+                                                <li>
+                                                    <a class="dropdown-item py-2" href=" caderno-teoriaM.html">
+                                                        <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                                        Volume 1
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item py-2" href=" caderno-teoriaM.html">
+                                                        <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                                        Volume 2
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item py-2" href=" caderno-teoriaM.html">
+                                                        <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                                        Volume 3
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item py-2" href=" caderno-teoriaM.html">
+                                                        <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                                        Volume 4
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item dropdown-toggle py-2" href="#">
+                                                <i class="bi bi-journals me-2 text-warning"></i>
+                                                Caderno de Aula
+                                            </a>
+
+                                            <ul class="dropdown-menu shadow-lg">
+                                                <li>
+                                                    <a class="dropdown-item py-2" href=" caderno-aulaM.html">
+                                                        <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                                        Volume 1
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item py-2" href=" caderno-aulaM.html">
+                                                        <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                                        Volume 2
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item py-2" href=" caderno-aulaM.html">
+                                                        <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                                        Volume 3
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item py-2" href=" caderno-aulaM.html">
+                                                        <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                                        Volume 4
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item dropdown-toggle py-2" href="#">
+                                                <i class="bi bi-journals me-2 text-warning"></i>
+                                                Caderno de Estudo Avançado
+                                            </a>
+
+                                            <ul class="dropdown-menu shadow-lg">
+                                                <li>
+                                                    <a class="dropdown-item py-2" href=" caderno-estudoAvanM.html">
+                                                        <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                                        Volume 1
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item py-2" href=" caderno-estudoAvanM.html">
+                                                        <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                                        Volume 2
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item py-2" href=" caderno-estudoAvanM.html">
+                                                        <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                                        Volume 3
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item py-2" href=" caderno-estudoAvanM.html">
+                                                        <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                                        Volume 4
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item dropdown-toggle py-2" href="#">
+                                                <i class="bi bi-journals me-2 text-warning"></i>
+                                                Revisão
+                                            </a>
+
+                                            <ul class="dropdown-menu shadow-lg">
+                                                <li>
+                                                    <a class="dropdown-item py-2" href="#">
+                                                        <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                                        Teoria
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item py-2" href="#">
+                                                        <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                                        Exercícios
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            <!-- OUTROS -->
+                                <li>
+                                <a class="dropdown-item py-2" href="#">
+                                    <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                    Material Extra
+                                </a>
+                                </li>
+                                <li>
+                                <a class="dropdown-item py-2" href="#">
+                                    <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                    Atualizações
+                                </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item py-2" href="#">
+                                        <i class="bi bi-journal-bookmark me-2 text-secondary"></i> 
+                                        Dicas
+                                    </a>
+                                </li>
+
+                       <!-- <li><hr class="dropdown-divider"></li>-->
+                    </ul>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="bi bi-play-circle me-1"></i> Videoaulas</a>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="bi bi-graph-up me-1"></i> Item do Menu</a>
+                </li>
+            </ul>
+
+            <!-- DISCIPLINA -->
+            <div class="d-flex flex-column me-5">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-1">
+                        <li class="breadcrumb-item"><a href="#">Disciplinas</a></li>
+                        <li class="breadcrumb-item active nome-disciplina-dinamico" id="nomMateria"></li>
+                    </ol>
+                </nav>
+                <div class="d-flex align-items-center">
+                    <h1 class="h4 fw-bold mb-0 me-3 materia nome-disciplina-dinamico" id="nomMateria"></h1>
+                </div>
+            </div>
+
+            <!-- Perfil do Usuário -->
+            <div class="d-flex align-items-center">
+                <div class="user-profile">
+                    <div class="user-info text-end d-none d-md-block">
+                        <span class="user-name">Lucas Ferreira</span>
+                        <span class="user-status">Estudante Premium</span>
+                    </div>
+                    <div class="user-avatar">
+                        VZ
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+
+<div class="container" style="max-width: 800px;">
+    <div class="mb-5">
+        <h2 class="titulo-pagina">Caderno de Aula | <span id="displayVolume"></span></h2>
+        <p class="text-muted">Abra a aula e escolha entre os exercícios de aula ou tarefa.</p>
+    </div>
+
+    <!-- CADERNO DA AULA  -->
+    <div id="renderAula">
+        
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/conteudoData.js"></script>
+<script src="../js/dinamicaCores.js"></script>
+<script src="../js/cardenoAula.js"></script>
+<script>
+document.querySelectorAll('.dropdown, .dropdown-submenu').forEach(function(element) {
+    let timeout;
+    
+    element.addEventListener('mouseenter', function() {
+        // Limpa qualquer timer de fechar se o usuário voltar rápido
+        clearTimeout(timeout);
+        
+        // Encontra o menu específico deste item
+        let menu = element.querySelector(':scope > .dropdown-menu');
+        if (menu) {
+            menu.classList.add('show');
+        }
+    });
+
+    element.addEventListener('mouseleave', function() {
+        let menu = element.querySelector(':scope > .dropdown-menu');
+        
+        // Define um tempo de 300ms antes de fechar
+        timeout = setTimeout(function() {
+            if (menu) {
+                menu.classList.remove('show');
+            }
+        }, 300); // 300ms é o tempo ideal para ser fluido mas não lento
+    });
+});
+</script>
+
+
+</body>
+</html>

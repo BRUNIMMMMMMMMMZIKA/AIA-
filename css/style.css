@@ -1,0 +1,300 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #013c6f;
+}
+
+
+/* HEADER */
+.header {
+  background: #fff;
+  padding: 20px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.auth a {
+  margin-left: 15px;
+  text-decoration: none;
+}
+
+.signup {
+  background: #013c6f;
+  padding: 8px 18px;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* HERO */
+.hero {
+  background: #fff;
+  margin: 40px;
+  border-radius: 20px;
+  padding: 60px;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero-text {
+  width: 50%;
+}
+
+.about {
+  letter-spacing: 3px;
+  color: #999;
+}
+
+.hero-text h1 {
+  font-size: 42px;
+  margin: 20px 0;
+}
+
+.hero-text span {
+  color: #3347ff;
+}
+
+.hero-text p {
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.buttons .btn {
+  padding: 12px 22px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.primary {
+  background: #fff;
+  font-weight: bold;
+}
+
+.outline {
+  background: transparent;
+  border: 2px solid #ffcc33;
+}
+
+/* CAROUSEL */
+.carousel {
+  position: relative;
+  width: 50%;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.8);
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 6px 12px;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* FEATURES */
+.features {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px;
+  padding: 2px;
+  gap: 4px;
+}
+
+.card {
+  width: 32%;
+  padding: 30px;
+  border-radius: 15px;
+  color: #fff;
+}
+
+.pink { background: #0debab; }
+.yellow { background: #0db5ab; }
+.green { background: #0d94ab; }
+.azulescuro {background:#013c6f}
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+  }
+
+  .hero-text, .carousel {
+    width: 100%;
+  }
+
+  .features {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .card {
+    width: 100%;
+  }
+}
+.hero-text img {
+  max-width: 400px;      /* tamanho máximo da logo */
+  width: 100%;           /* responsivo */
+  height: auto;
+  margin: 15px 0 10px;   /* espaçamento em cima e embaixo */
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+  margin-left: 60px;
+}
+@media (max-width: 768px) {
+  .hero-text img {
+    max-width: 200px;
+    margin: 10px auto; /* centraliza no mobile */
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+}
+.hero-text img {
+  animation: fadeInUp 0.8s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* DROPDOWN */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 35px;
+  left: 0;
+  background-color: #fff;
+  min-width: 200px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+}
+
+.dropdown-content a:hover {
+  background: #666;
+  color: #000;
+}
+
+/* Mostrar dropdown ao passar o mouse */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown-content {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 0.3s ease;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+.header .logo img {
+  height: 42px;          /* altura ideal para header */
+  width: auto;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Efeito hover sutil */
+.header .logo img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+}
+@media (max-width: 768px) {
+  .header .logo img {
+    height: 36px;
+  }
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 45px;
+}
+.logo {
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 45px;
+  color: var(--verde-agua);
+  letter-spacing: 2px;
+}
+
+.logo img {
+  max-width: 140px;
+  width: 100%;
+  height: auto;
+}
+.logo img {
+  filter: brightness(1.2);
+}
+
+

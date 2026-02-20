@@ -1,0 +1,306 @@
+/* ==========================================================================
+   TEMA E VARIÁVEIS GLOBAIS
+   ========================================================================== */
+:root {
+    --aia-main: #00b8d4;    /* Turquesa */
+    --aia-success: #05c46b; /* Verde sólido */
+    --bg-page: #f8fafc;
+    --paper: #ffffff;
+    --text-main: #334155;
+    --text-muted: #64748b;
+    --border-light: #e2e8f0;
+
+    /* Cores Oficiais do PDF de Referência */
+    --cor-historia: #784d3e;
+    --cor-biologia: #127335;
+    --cor-matematica: #ed7241;
+    --cor-quimica: #24388c;
+    --cor-sociologia: #9b191c;
+    --cor-gramatica: #e62576;
+    --cor-geografia: #eedf1c;
+    --cor-fisica: #6d247d;
+    --cor-redacao: #af2765;
+}
+
+body { 
+    font-family: 'Inter', sans-serif; 
+    background-color: var(--bg-page);
+    padding: 0; 
+    color: var(--text-main); 
+}
+
+.titulo-pagina { color: #000000; font-weight: 700; } 
+
+/* ==========================================================================
+   ESTRUTURA DOS CARDS (CADERNO)
+   ========================================================================== */
+.linhaFrentes {
+    width: 2px;
+    height: 70px;
+    background-color: var(--aia-main);
+    border: none;
+    margin: 0;
+    opacity: 1;
+}
+
+.lesson-card {
+    background: var(--paper);
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    border-left: 6px solid var(--aia-main);
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.lesson-header { 
+    padding: 10px 25px;  
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    cursor: pointer; 
+}
+
+.lesson-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+}
+
+.lesson-card.open .lesson-content { 
+    max-height: 1500px; 
+    border-top: 1px solid #f1f5f9; 
+}
+
+.inner-padding { padding-left: 10px; padding-top: 10px;}
+
+/* ==========================================================================
+   NAVEGAÇÃO (TABS AULA/TAREFA)
+   ========================================================================== */
+.tab-nav { 
+    background-color: #f1f5f9 !important;
+    padding: 10px; 
+    border-radius: 10px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.ta { 
+    font-weight: 800; 
+    color: var(--aia-main) !important; 
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.btn-tab {
+    border: none; 
+    padding: 8px 20px; 
+    border-radius: 8px; 
+    font-size: 0.85rem;
+    font-weight: 600; 
+    color: var(--text-muted); 
+    background: transparent; 
+    transition: 0.2s;
+}
+
+.btn-tab.active { 
+    background: white; 
+    color: var(--aia-main); 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+}
+
+/* ==========================================================================
+   GRID DE EXERCÍCIOS E BOLINHAS
+   ========================================================================== */
+.exercise-grid { 
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 30px; 
+    margin-bottom: 30px; 
+    width: 100%;
+    padding: 0px 0;
+    justify-content: center;
+}
+
+.circle {
+    width: 51px; height: 51px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem; font-weight: 700; cursor: pointer;
+    border: 2px solid var(--border-light); background: white; color: #94a3b8;
+    transition: all 0.2s ease;
+}
+
+.circle.done {
+    background-color: var(--aia-success) !important;
+    border-color: var(--aia-success) !important;
+    color: white !important;
+}
+
+.circle.selected {
+    transform: scale(1.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+}
+
+.circle.selected:not(.done) {
+    background-color: var(--aia-main) !important;
+    border-color: var(--aia-main) !important;
+    color: white !important;
+}
+
+.circle.selected.done {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 3px var(--aia-main);
+}
+
+/* ==========================================================================
+   ESTILIZAÇÃO DA TABELA (CRONOGRAMA)
+   ========================================================================== */
+.table-cronograma {
+    border-collapse: collapse;
+    background-color: white;
+    font-size: 0.9rem;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.table-cronograma thead th {
+    background-color: var(--aia-main) !important; 
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px;
+    border: 1px solid #008ca2 !important;
+    font-weight: 600;
+}
+
+.col-horario {
+    background-color: #f8fafc;
+    width: 120px;
+    color: #008ca2;
+    font-weight: 700;
+    text-align: center;
+}
+
+.table-cronograma td {
+    border: 1px solid #d1d5db !important;
+    height: 60px;
+    padding: 0 !important;
+    vertical-align: middle;
+    position: relative;
+    transition: background-color 0.2s ease;
+}
+
+.table-cronograma tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+/* ==========================================================================
+   MODO DE GERENCIAMENTO E BADGES
+   ========================================================================== */
+.badge-cronograma {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-align: center;
+    line-height: 1.2;
+    text-transform: uppercase;
+    word-break: break-word;
+    transition: all 0.2s ease;
+}
+
+.table-cronograma.mode-edit td[data-dia] {
+    cursor: cell;
+}
+
+.table-cronograma.mode-edit td[data-dia]:hover {
+    filter: brightness(90%);
+    outline: 2px dashed var(--aia-main);
+    outline-offset: -2px;
+}
+
+/* ==========================================================================
+   CORES DAS MATÉRIAS (PALETA OFICIAL PDF)
+   ========================================================================== */
+.bg-historia   { background-color: var(--cor-historia) !important; color: white !important; }
+.bg-biologia   { background-color: var(--cor-biologia) !important; color: white !important; }
+.bg-matematica { background-color: var(--cor-matematica) !important; color: white !important; }
+.bg-quimica    { background-color: var(--cor-quimica) !important; color: white !important; }
+.bg-sociologia { background-color: var(--cor-sociologia) !important; color: white !important; }
+.bg-gramatica  { background-color: var(--cor-gramatica) !important; color: white !important; }
+.bg-geografia  { background-color: var(--cor-geografia) !important; color: #334155 !important; }
+.bg-fisica     { background-color: var(--cor-fisica) !important; color: white !important; }
+.bg-redacao    { background-color: var(--cor-redacao) !important; color: white !important; }
+
+/* Cores de Estado e Genéricas */
+.bg-primary    { background-color: var(--aia-main) !important; color: white !important; }
+.bg-secondary  { background-color: #94a3b8 !important; color: white !important; }
+.bg-danger     { background-color: #e74c3c !important; color: white !important; }
+
+/* ==========================================================================
+   COMPONENTES EXTRAS
+   ========================================================================== */
+.form-check-input:checked {
+    background-color: var(--aia-success) !important;
+    border-color: var(--aia-success) !important;
+}
+
+.user-avatar {
+    width: 40px; height: 40px;
+    background-color: var(--aia-main);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+}
+
+/* Destaque do dia atual */
+.dia-atual-header {
+    background-color: #008ca2 !important;
+    position: relative;
+}
+
+.dia-atual-header::after {
+    content: "HOJE";
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.5rem;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+.dia-atual-coluna {
+    background-color: rgba(0, 184, 212, 0.03);
+    border-left: 1px solid rgba(0, 184, 212, 0.2) !important;
+    border-right: 1px solid rgba(0, 184, 212, 0.2) !important;
+}
+
+/* Filtros de Período */
+.filter-btn {
+    border-radius: 20px;
+    padding: 6px 15px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-light);
+    background-color: white;
+    color: var(--text-muted);
+}
+
+.filter-btn.active {
+    background-color: var(--aia-main) !important;
+    border-color: var(--aia-main) !important;
+    color: white !important;
+    box-shadow: 0 4px 10px rgba(0, 184, 212, 0.2);
+}

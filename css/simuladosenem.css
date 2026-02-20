@@ -1,0 +1,209 @@
+/* ==========================================================================
+   AIA - SIMULADOS ENEM (ESTILIZAÇÃO COMPLETA AJUSTADA)
+   ========================================================================== */
+
+:root {
+    --aia-main: #00a896;
+    --aia-main-soft: #e6f6f4;
+    --aia-accent: #00d2ff; /* Azul usado no hover do header */
+    --aia-bg: #f8fafc;
+    --aia-text: #2c3e50;
+    --aia-muted: #64748b;
+    --aia-border: #e2e8f0;
+
+    --aia-card-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+
+body {
+    background-color: var(--aia-bg);
+    color: var(--aia-text);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+main,
+.container-principal,
+.section-dashboard {
+    padding-top: 30px !important;
+    margin-top: 0 !important;
+}
+
+
+/* ==========================================================================
+   CARDS
+   ========================================================================== */
+
+.card {
+    border: 1px solid var(--aia-border);
+    border-radius: 12px;
+    box-shadow: var(--aia-card-shadow);
+    overflow: hidden; /* Garante que nada estoure */
+}
+
+.card-header {
+    background-color: #ffffff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--aia-border);
+}
+
+/* ==========================================================================
+   TABELAS (SEM BARRA HORIZONTAL)
+   ========================================================================== */
+
+/* REMOVE comportamento padrão do Bootstrap */
+.table-responsive {
+    overflow-x: hidden !important;
+}
+
+.table {
+    width: 100% !important;
+    margin-bottom: 0;
+    font-size: 0.85rem;
+    border-collapse: collapse;
+    table-layout: fixed; /* Ajusta colunas proporcionalmente */
+}
+
+.table thead th {
+    background-color: #f1f5f9;
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: center;
+    white-space: normal; /* Impede estourar largura */
+}
+
+.table tbody td {
+    vertical-align: middle;
+    text-align: center;
+    white-space: normal;
+}
+
+/* Inputs dentro da tabela */
+.table input[type="number"] {
+    width: 100%;
+    max-width: 85px;
+    text-align: center;
+    border: 1px solid var(--aia-border);
+    border-radius: 8px;
+    padding: 6px 4px;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+/* Hover azul estilo header */
+.table input[type="number"]:hover {
+    border-color: var(--aia-accent);
+}
+
+.table input[type="number"]:focus {
+    outline: none;
+    border-color: var(--aia-accent);
+    box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.15);
+}
+
+/* Percentual */
+.perc-materia {
+    font-weight: 700;
+    color: var(--aia-main);
+    font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   BOTÕES
+   ========================================================================== */
+
+.btn-outline-danger {
+    border: 1px solid #dee2e6;
+    color: #6c757d;
+    background: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+}
+
+.btn-outline-danger:hover {
+    background: #fff5f5;
+    color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-danger {
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+.btn-light {
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   GRÁFICOS
+   ========================================================================== */
+
+canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* ==========================================================================
+   MODAL
+   ========================================================================== */
+
+.modal-content {
+    border-radius: 18px;
+    border: none;
+}
+
+.modal-body h5 {
+    font-size: 1.1rem;
+}
+
+.modal-body p {
+    font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   TIPOGRAFIA AUXILIAR
+   ========================================================================== */
+
+.fw-800 {
+    font-weight: 800;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE AJUSTADA (SEM SCROLL)
+   ========================================================================== */
+
+@media (max-width: 992px) {
+
+    .table input[type="number"] {
+        max-width: 75px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .table {
+        font-size: 0.75rem;
+    }
+
+    .table input[type="number"] {
+        max-width: 65px;
+        padding: 4px;
+    }
+
+    .card-header {
+        font-size: 0.8rem;
+    }
+}
+
