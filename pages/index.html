@@ -1,18 +1,82 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Redirecionando...</title>
-
-  <!-- Redirecionamento automático -->
-  <meta http-equiv="refresh" content="0; url=pages/index.html">
-
-  <script>
-    // Fallback para garantir redirecionamento
-    window.location.href = "pages/index.html";
-  </script>
+  <title>Learning Platform</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <p>Redirecionando para o sistema...</p>
+
+<header class="header">
+  <div class="logo"><img src="Logo AIA_Symbol.png" alt="Logo AIA"></div>
+
+  <nav class="nav">
+  <a href="#">Home</a>
+  <a href="#">Conheça</a>
+  <a href="#">Nossos Cursos</a>
+
+  <div class="dropdown">
+    <a href="#" class="dropbtn">Área Escolar ▾</a>
+    <div class="dropdown-content">
+      <a href="#">Escola</a>
+      <a href="#">Professor</a>
+      <a href="pages/alunopresencial.html">Aluno</a>
+      <a href="#">Mentor</a>
+      <a href="#">Pais</a>
+    </div>
+  </div>
+
+  <a href="#">Planos</a>
+  <a href="#">Contato</a>
+</nav>
+
+
+  <div class="auth">
+    <a href="login.html" class="login">Login</a>
+    <a href="login.hmtl" class="signup">Cadastre-se</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <span class="about"></span>
+    <img src="Logo AIA_Symbol.png" alt="Logo AIA"> <br><span></span>
+    <p></p>
+
+    <div class="buttons">
+      <button class="btn primary"></button>
+      <button class="btn outline"></button>
+    </div>
+  </div>
+
+  <div class="carousel">
+    <img src="https://images.unsplash.com/photo-1588072432836-e10032774350" class="slide active">
+    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7" class="slide">
+    <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f" class="slide">
+
+    <button class="prev">❮</button>
+    <button class="next">❯</button>
+  </div>
+</section>
+
+<section class="features">
+  <div class="card pink">
+    <h3>Provas de Bolsas</h3>
+  </div>
+
+  <div class="card yellow">
+    <h3>Nossas Unidades</h3>
+  </div>
+
+  <div class="card green">
+    <h3>Informativos de vestibulares</h3>
+  </div>
+
+  <div class="card green">
+    <h3>Provas Antigas</h3>
+  </div>
+</section>
+
+<script src="scrippt.js"></script>
 </body>
 </html>
